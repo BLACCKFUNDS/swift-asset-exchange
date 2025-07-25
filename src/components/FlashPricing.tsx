@@ -12,11 +12,11 @@ const FlashPricing = () => {
   const plans = [
     {
       name: "lite",
-      price: 30,
+      price: 50,
       description: "It's perfect for a starter.",
       popular: false,
       features: [
-        "1,000$ Flash USDT,BTC,SOL,BNB,ETH/daily",
+        "1,500$ Flash USDT,BTC,SOL,BNB,ETH/daily",
         "Tokens life - 90 days",
         "Tradable,Swappable",
         "Transferable!",
@@ -27,22 +27,7 @@ const FlashPricing = () => {
     },
     {
       name: "base",
-      price: 50,
-      description: "It's perfect for a starter.",
-      popular: false,
-      features: [
-        "3,000$ Flash USDT,BTC,SOL,BNB,ETH/daily",
-        "Tokens life - 90 days",
-        "Tradable,Swappable",
-        "Transferable!",
-        "TRC20,ERC20,BNB",
-        "ALL WALLETS",
-        "ALL EXCHANGES"
-      ]
-    },
-    {
-      name: "Standard",
-      price: 75,
+      price: 150,
       description: "It's perfect for a starter.",
       popular: false,
       features: [
@@ -56,12 +41,27 @@ const FlashPricing = () => {
       ]
     },
     {
+      name: "Standard",
+      price: 300,
+      description: "Great value for money.",
+      popular: false,
+      features: [
+        "10,000$ Flash USDT,BTC,SOL,BNB,ETH/daily",
+        "Tokens life - 90 days",
+        "Tradable,Swappable",
+        "Transferable!",
+        "TRC20,ERC20,BNB",
+        "ALL WALLETS",
+        "ALL EXCHANGES"
+      ]
+    },
+    {
       name: "Pro",
-      price: 100,
+      price: 430,
       description: "Ideal for advanced buyers.",
       popular: true,
       features: [
-        "10,000$ Flash USDT",
+        "15,000$ Flash USDT",
         "BTC,SOL,BNB,ETH/daily",
         "Tokens life - 180 days",
         "Tradable,Swappable",
@@ -74,11 +74,11 @@ const FlashPricing = () => {
     },
     {
       name: "GOLD",
-      price: 150,
-      description: "Ideal for advanced buyers.",
+      price: 2500,
+      description: "Ultimate professional package.",
       popular: true,
       features: [
-        "17,000$ Flash USDT",
+        "100,000$ Flash USDT",
         "BTC,SOL,BNB,TON/daily",
         "Tokens life - 180 days",
         "Tradable,Swappable",

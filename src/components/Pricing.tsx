@@ -1,25 +1,16 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Check, Star } from "lucide-react";
-import PaymentDialog from "./PaymentDialog";
 
 const Pricing = () => {
-  const [paymentDialogOpen, setPaymentDialogOpen] = useState(false);
-  const [selectedPlan, setSelectedPlan] = useState<{name: string; price: string; amount: string} | null>(null);
-
-  const handleBuyClick = (plan: {name: string; price: string; amount: string}) => {
-    setSelectedPlan(plan);
-    setPaymentDialogOpen(true);
-  };
   const plans = [
     {
       name: "Lite",
-      price: "$50",
+      price: "$30",
       period: "/per month",
       description: "It's perfect for a starter.",
-      amount: "1,500$",
+      amount: "1,000$",
       features: [
         "Flash USDT, BTC, SOL, BNB, ETH/daily",
         "Tokens life - 90 days",
@@ -33,7 +24,24 @@ const Pricing = () => {
     },
     {
       name: "Base",
-      price: "$150",
+      price: "$50",
+      period: "/per month",
+      description: "It's perfect for a starter.",
+      amount: "3,000$",
+      features: [
+        "Flash USDT, BTC, SOL, BNB, ETH/daily",
+        "Tokens life - 90 days",
+        "Tradable, Swappable",
+        "Transferable!",
+        "TRC20, ERC20, BNB",
+        "ALL WALLETS",
+        "ALL EXCHANGES"
+      ],
+      popular: false
+    },
+    {
+      name: "Standard",
+      price: "$75",
       period: "/per month",
       description: "It's perfect for a starter.",
       amount: "5,000$",
@@ -49,28 +57,11 @@ const Pricing = () => {
       popular: false
     },
     {
-      name: "Standard",
-      price: "$300",
-      period: "/per month",
-      description: "It's perfect for a starter.",
-      amount: "10,000$",
-      features: [
-        "Flash USDT, BTC, SOL, BNB, ETH/daily",
-        "Tokens life - 90 days",
-        "Tradable, Swappable",
-        "Transferable!",
-        "TRC20, ERC20, BNB",
-        "ALL WALLETS",
-        "ALL EXCHANGES"
-      ],
-      popular: false
-    },
-    {
       name: "Pro",
-      price: "$430",
+      price: "$100",
       period: "/per month",
       description: "Ideal for advanced buyers.",
-      amount: "15,000$",
+      amount: "10,000$",
       features: [
         "Flash USDT, BTC, SOL, BNB, ETH/daily",
         "Tokens life - 180 days",
@@ -85,10 +76,10 @@ const Pricing = () => {
     },
     {
       name: "Gold",
-      price: "$2,500",
+      price: "$150",
       period: "/per month",
       description: "Ideal for advanced buyers.",
-      amount: "100,000$",
+      amount: "17,000$",
       features: [
         "Flash USDT, BTC, SOL, BNB, TON/daily",
         "Tokens life - 180 days",
@@ -162,7 +153,6 @@ const Pricing = () => {
                   variant={plan.popular ? "crypto" : "crypto-outline"} 
                   className="w-full mt-6"
                   size="lg"
-                  onClick={() => handleBuyClick({name: plan.name, price: plan.price, amount: plan.amount})}
                 >
                   Buy Now
                 </Button>
@@ -185,12 +175,6 @@ const Pricing = () => {
           </div>
         </div>
       </div>
-
-      <PaymentDialog 
-        isOpen={paymentDialogOpen}
-        onOpenChange={setPaymentDialogOpen}
-        selectedPlan={selectedPlan}
-      />
     </section>
   );
 };

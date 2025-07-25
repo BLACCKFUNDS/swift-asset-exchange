@@ -1,24 +1,21 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Phone } from "lucide-react";
 import cryptoIcon from "@/assets/crypto-icon.png";
-import CryptoTicker from "./CryptoTicker";
 
 const Header = () => {
   return (
-    <>
-      <CryptoTicker />
-      <header className="sticky top-0 w-full z-50 bg-background/95 backdrop-blur-sm border-b border-crypto-border">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <img src={cryptoIcon} alt="CryptoFlash" className="w-8 h-8 animate-pulse-glow" />
-            <span className="text-xl font-bold text-foreground">CryptoFlash</span>
-          </div>
+    <header className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-sm border-b border-crypto-border">
+      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+        <div className="flex items-center space-x-3">
+          <img src={cryptoIcon} alt="FlashUSDT" className="w-8 h-8" />
+          <span className="text-xl font-bold text-foreground">FlashUSDT Pro</span>
+        </div>
         
         <nav className="hidden md:flex items-center space-x-6">
-          <a href="#features" className="text-muted-foreground hover:text-crypto-primary transition-all duration-300 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-crypto-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">Features</a>
-          <a href="#pricing" className="text-muted-foreground hover:text-crypto-primary transition-all duration-300 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-crypto-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">Pricing</a>
-          <a href="#reviews" className="text-muted-foreground hover:text-crypto-primary transition-all duration-300 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-crypto-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">Reviews</a>
-          <a href="#contact" className="text-muted-foreground hover:text-crypto-primary transition-all duration-300 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-crypto-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">Contact</a>
+          <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">Features</a>
+          <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">Pricing</a>
+          <a href="#reviews" className="text-muted-foreground hover:text-foreground transition-colors">Reviews</a>
+          <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact</a>
         </nav>
 
         <div className="flex items-center space-x-2">
@@ -32,7 +29,6 @@ const Header = () => {
         </div>
       </div>
     </header>
-    </>
   );
 };
 

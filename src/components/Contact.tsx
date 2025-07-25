@@ -28,9 +28,9 @@ const Contact = () => {
               <Button 
                 variant="crypto" 
                 className="w-full"
-                onClick={() => window.open('https://t.me/cryptoflasha', '_blank')}
+                onClick={() => window.open('https://t.me/binanceflashar', '_blank')}
               >
-                @cryptoflasha
+                @binanceflashar
               </Button>
             </CardContent>
           </Card>
@@ -47,9 +47,9 @@ const Contact = () => {
               <Button 
                 variant="crypto" 
                 className="w-full"
-                onClick={() => window.open('https://wa.me/84813504458', '_blank')}
+                onClick={() => window.open('https://wa.me/447946488785', '_blank')}
               >
-                +84813504458
+                +447946488785
               </Button>
             </CardContent>
           </Card>

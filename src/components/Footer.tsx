@@ -9,8 +9,8 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <img src={cryptoIcon} alt="FlashUSDT" className="w-8 h-8" />
-              <span className="text-xl font-bold text-foreground">FlashUSDT Pro</span>
+              <img src={cryptoIcon} alt="CryptoFlash" className="w-8 h-8" />
+              <span className="text-xl font-bold text-foreground">CryptoFlash</span>
             </div>
             <p className="text-muted-foreground text-sm">
               The #1 generator on the market for Flash USDT, BTC, ETH with original HASH technology.
@@ -39,14 +39,14 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center gap-2">
                 <MessageCircle className="w-4 h-4 text-crypto-primary" />
-                <a href="https://t.me/cryptoflasha" className="text-sm text-muted-foreground hover:text-crypto-primary transition-colors">
-                  @cryptoflasha
+                <a href="https://t.me/binanceflashar" className="text-sm text-muted-foreground hover:text-crypto-primary transition-colors">
+                  @binanceflashar
                 </a>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-crypto-primary" />
-                <a href="https://wa.me/84813504458" className="text-sm text-muted-foreground hover:text-crypto-primary transition-colors">
-                  +84813504458
+                <a href="https://wa.me/447946488785" className="text-sm text-muted-foreground hover:text-crypto-primary transition-colors">
+                  +447946488785
                 </a>
               </div>
               <div className="flex items-center gap-2">
@@ -84,7 +84,7 @@ const Footer = () => {
 
         <div className="border-t border-crypto-border mt-8 pt-8 text-center">
           <p className="text-sm text-muted-foreground">
-            © 2024 FlashUSDT Pro. All rights reserved. 
+            © 2024 CryptoFlash. All rights reserved. 
             <span className="text-crypto-primary ml-2">Secure • Reliable • Professional</span>
           </p>
         </div>

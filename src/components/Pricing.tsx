@@ -1,9 +1,18 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Check, Star } from "lucide-react";
+import PaymentDialog from "./PaymentDialog";
 
 const Pricing = () => {
+  const [paymentDialogOpen, setPaymentDialogOpen] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState<{name: string; price: string; amount: string} | null>(null);
+
+  const handleBuyClick = (plan: {name: string; price: string; amount: string}) => {
+    setSelectedPlan(plan);
+    setPaymentDialogOpen(true);
+  };
   const plans = [
     {
       name: "Lite",
@@ -153,6 +162,7 @@ const Pricing = () => {
                   variant={plan.popular ? "crypto" : "crypto-outline"} 
                   className="w-full mt-6"
                   size="lg"
+                  onClick={() => handleBuyClick({name: plan.name, price: plan.price, amount: plan.amount})}
                 >
                   Buy Now
                 </Button>
@@ -175,6 +185,12 @@ const Pricing = () => {
           </div>
         </div>
       </div>
+
+      <PaymentDialog 
+        isOpen={paymentDialogOpen}
+        onOpenChange={setPaymentDialogOpen}
+        selectedPlan={selectedPlan}
+      />
     </section>
   );
 };

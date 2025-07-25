@@ -9,8 +9,8 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <img src={cryptoIcon} alt="Crypto Flasher" className="w-8 h-8" />
-              <span className="text-xl font-bold text-foreground">Crypto Flasher</span>
+              <img src={cryptoIcon} alt="CryptoFlash" className="w-8 h-8" />
+              <span className="text-xl font-bold text-foreground">CryptoFlash</span>
             </div>
             <p className="text-muted-foreground text-sm">
               The #1 generator on the market for Flash USDT, BTC, ETH with original HASH technology.
@@ -84,7 +84,7 @@ const Footer = () => {
 
         <div className="border-t border-crypto-border mt-8 pt-8 text-center">
           <p className="text-sm text-muted-foreground">
-            © 2024 Crypto Flasher. All rights reserved. 
+            © 2024 CryptoFlash. All rights reserved. 
             <span className="text-crypto-primary ml-2">Secure • Reliable • Professional</span>
           </p>
         </div>

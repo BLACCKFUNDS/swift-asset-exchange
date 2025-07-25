@@ -2,12 +2,10 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle, Phone } from "lucide-react";
 import cryptoIcon from "@/assets/crypto-icon.png";
 import CryptoTicker from "./CryptoTicker";
-import TopBanner from "./TopBanner";
 
 const Header = () => {
   return (
     <>
-      <TopBanner />
       <CryptoTicker />
       <header className="sticky top-0 w-full z-50 bg-background/95 backdrop-blur-sm border-b border-crypto-border">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">

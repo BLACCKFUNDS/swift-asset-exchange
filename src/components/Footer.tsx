@@ -39,14 +39,14 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center gap-2">
                 <MessageCircle className="w-4 h-4 text-crypto-primary" />
-                <a href="https://t.me/binanceflashar" className="text-sm text-muted-foreground hover:text-crypto-primary transition-colors">
-                  @binanceflashar
+                <a href="https://t.me/cryptoflasha" className="text-sm text-muted-foreground hover:text-crypto-primary transition-colors">
+                  @cryptoflasha
                 </a>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-crypto-primary" />
-                <a href="https://wa.me/447946488785" className="text-sm text-muted-foreground hover:text-crypto-primary transition-colors">
-                  +447946488785
+                <a href="https://wa.me/84813504458" className="text-sm text-muted-foreground hover:text-crypto-primary transition-colors">
+                  +84813504458
                 </a>
               </div>
               <div className="flex items-center gap-2">

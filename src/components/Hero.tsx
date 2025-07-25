@@ -58,11 +58,11 @@ const Hero = () => {
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <MessageCircle className="w-5 h-5 text-crypto-primary" />
-                <span className="text-sm">Telegram: <span className="text-crypto-primary font-medium">@binanceflashar</span></span>
+                <span className="text-sm">Telegram: <span className="text-crypto-primary font-medium">@cryptoflasha</span></span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-crypto-primary" />
-                <span className="text-sm">WhatsApp: <span className="text-crypto-primary font-medium">+447946488785</span></span>
+                <span className="text-sm">WhatsApp: <span className="text-crypto-primary font-medium">+84813504458</span></span>
               </div>
               <div className="pt-2 border-t border-crypto-border">
                 <p className="text-xs text-muted-foreground mb-2">Payment Methods:</p>

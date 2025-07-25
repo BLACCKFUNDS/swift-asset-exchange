@@ -7,10 +7,10 @@ const Pricing = () => {
   const plans = [
     {
       name: "Lite",
-      price: "$30",
+      price: "$50",
       period: "/per month",
       description: "It's perfect for a starter.",
-      amount: "1,000$",
+      amount: "1,500$",
       features: [
         "Flash USDT, BTC, SOL, BNB, ETH/daily",
         "Tokens life - 90 days",
@@ -24,24 +24,7 @@ const Pricing = () => {
     },
     {
       name: "Base",
-      price: "$50",
-      period: "/per month",
-      description: "It's perfect for a starter.",
-      amount: "3,000$",
-      features: [
-        "Flash USDT, BTC, SOL, BNB, ETH/daily",
-        "Tokens life - 90 days",
-        "Tradable, Swappable",
-        "Transferable!",
-        "TRC20, ERC20, BNB",
-        "ALL WALLETS",
-        "ALL EXCHANGES"
-      ],
-      popular: false
-    },
-    {
-      name: "Standard",
-      price: "$75",
+      price: "$150",
       period: "/per month",
       description: "It's perfect for a starter.",
       amount: "5,000$",
@@ -57,11 +40,28 @@ const Pricing = () => {
       popular: false
     },
     {
+      name: "Standard",
+      price: "$300",
+      period: "/per month",
+      description: "It's perfect for a starter.",
+      amount: "10,000$",
+      features: [
+        "Flash USDT, BTC, SOL, BNB, ETH/daily",
+        "Tokens life - 90 days",
+        "Tradable, Swappable",
+        "Transferable!",
+        "TRC20, ERC20, BNB",
+        "ALL WALLETS",
+        "ALL EXCHANGES"
+      ],
+      popular: false
+    },
+    {
       name: "Pro",
-      price: "$100",
+      price: "$430",
       period: "/per month",
       description: "Ideal for advanced buyers.",
-      amount: "10,000$",
+      amount: "15,000$",
       features: [
         "Flash USDT, BTC, SOL, BNB, ETH/daily",
         "Tokens life - 180 days",
@@ -76,10 +76,10 @@ const Pricing = () => {
     },
     {
       name: "Gold",
-      price: "$150",
+      price: "$2,500",
       period: "/per month",
       description: "Ideal for advanced buyers.",
-      amount: "17,000$",
+      amount: "100,000$",
       features: [
         "Flash USDT, BTC, SOL, BNB, TON/daily",
         "Tokens life - 180 days",

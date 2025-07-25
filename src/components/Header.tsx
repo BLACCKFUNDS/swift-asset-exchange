@@ -28,16 +28,7 @@ const Header = () => {
             <MessageCircle className="w-4 h-4" />
             Telegram
           </Button>
-          <Button 
-            variant="crypto" 
-            size="sm"
-            onClick={() => {
-              const pricingSection = document.getElementById('pricing');
-              if (pricingSection) {
-                pricingSection.scrollIntoView({ behavior: 'smooth' });
-              }
-            }}
-          >
+          <Button variant="crypto" size="sm">
             Get Started
           </Button>
         </div>

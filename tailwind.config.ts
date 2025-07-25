@@ -52,6 +52,13 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				crypto: {
+					primary: 'hsl(var(--crypto-primary))',
+					glow: 'hsl(var(--crypto-glow))',
+					dark: 'hsl(var(--crypto-dark))',
+					card: 'hsl(var(--crypto-card))',
+					border: 'hsl(var(--crypto-border))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',

@@ -10,8 +10,8 @@ const Header = () => {
       <header className="sticky top-0 w-full z-50 bg-background/95 backdrop-blur-sm border-b border-crypto-border">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <img src={cryptoIcon} alt="CryptoFlash" className="w-8 h-8 animate-pulse-glow" />
-            <span className="text-xl font-bold text-foreground">CryptoFlash</span>
+            <img src={cryptoIcon} alt="Crypto Flasher" className="w-8 h-8 animate-pulse-glow" />
+            <span className="text-xl font-bold text-foreground">Crypto Flasher</span>
           </div>
         
         <nav className="hidden md:flex items-center space-x-6">

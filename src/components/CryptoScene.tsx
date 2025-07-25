@@ -9,10 +9,10 @@ const FloatingCoin = () => {
       <mesh rotation={[0, 0, 0]} scale={[1.2, 1.2, 0.3]} position={[0, 0, 0]}>
         <cylinderGeometry args={[1, 1, 0.2, 32]} />
         <meshStandardMaterial 
-          color="#ff8c00" 
+          color="#4f90cd" 
           metalness={0.8} 
           roughness={0.2}
-          emissive="#ff8c00"
+          emissive="#4f90cd"
           emissiveIntensity={0.1}
         />
       </mesh>
@@ -47,7 +47,7 @@ const CryptoScene = () => {
         <Suspense fallback={null}>
           <ambientLight intensity={0.5} />
           <pointLight position={[10, 10, 10]} intensity={1} />
-          <pointLight position={[-10, -10, -10]} intensity={0.5} color="#ff8c00" />
+          <pointLight position={[-10, -10, -10]} intensity={0.5} color="#4f90cd" />
           
           <FloatingCoin />
           

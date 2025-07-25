@@ -26,37 +26,43 @@ const FlashPaymentDialog = ({ isOpen, onOpenChange, selectedPlan }: FlashPayment
   const paymentMethods = [
     {
       name: "USDT TRC20",
-      address: "TQRKxGDPWJN1FkGYZtBfpqiDo3rJ6aJ8fR",
+      address: "TYrW6KbjvaM2oYSPanht6LC2DLBwYR9gfh",
       network: "TRC20",
       icon: "₮"
     },
     {
       name: "USDT BEP20",
-      address: "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+      address: "0x554140f7aBA6d7e26a7815683a15770Db4Cf74e1",
       network: "BEP20",
       icon: "₮"
     },
     {
       name: "USDT ERC20",
-      address: "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      address: "0x554140f7aBA6d7e26a7815683a15770Db4Cf74e1",
       network: "ERC20",
       icon: "₮"
     },
     {
       name: "Bitcoin",
-      address: "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh",
+      address: "bc1q6059p46a0gdyxltplzhcmwxp7jnfr88nhh95ar",
       network: "BTC",
       icon: "₿"
     },
     {
       name: "Ethereum",
-      address: "0x742d35Cc6634C0532925a3b8D8c2e1e0c8e9c9c9",
+      address: "0x554140f7aBA6d7e26a7815683a15770Db4Cf74e1",
       network: "ETH",
       icon: "Ξ"
     },
     {
+      name: "Solana",
+      address: "ZWVARjXeBnEyA4ZNd5itNLnLWkNr5k479avD3QwZnkK",
+      network: "SOL",
+      icon: "◎"
+    },
+    {
       name: "BNB",
-      address: "bnb136ns6lfw4zs5hg4n85vdthaad7hq5m4gtkgf23",
+      address: "0x554140f7aBA6d7e26a7815683a15770Db4Cf74e1",
       network: "BNB",
       icon: "◆"
     }

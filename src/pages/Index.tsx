@@ -1,25 +1,27 @@
-import Header from "@/components/Header";
-import Hero from "@/components/Hero";
-import TrustSignals from "@/components/TrustSignals";
-import Features from "@/components/Features";
-import Stats from "@/components/Stats";
-import Pricing from "@/components/Pricing";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+import TopBanner from "@/components/TopBanner";
+import FlashHeader from "@/components/FlashHeader";
+import FlashHero from "@/components/FlashHero";
+import WhyUs from "@/components/WhyUs";
+import FlashStats from "@/components/FlashStats";
+import FlashReviews from "@/components/FlashReviews";
+import FlashPricing from "@/components/FlashPricing";
+import FlashFAQ from "@/components/FlashFAQ";
+import FlashFooter from "@/components/FlashFooter";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <Header />
+      <TopBanner />
+      <FlashHeader />
       <main>
-        <Hero />
-        <TrustSignals />
-        <Features />
-        <Stats />
-        <Pricing />
-        <Contact />
+        <FlashHero />
+        <WhyUs />
+        <FlashStats />
+        <FlashReviews />
+        <FlashPricing />
+        <FlashFAQ />
       </main>
-      <Footer />
+      <FlashFooter />
     </div>
   );
 };

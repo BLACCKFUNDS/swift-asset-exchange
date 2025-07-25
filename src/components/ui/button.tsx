@@ -20,6 +20,9 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         crypto: "bg-gradient-to-r from-crypto-primary to-crypto-glow text-crypto-dark font-semibold hover:shadow-[var(--shadow-glow)] hover:scale-105 transition-all duration-300",
         "crypto-outline": "border-2 border-crypto-primary bg-transparent text-crypto-primary hover:bg-crypto-primary hover:text-crypto-dark transition-all duration-300",
+        "flash": "bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] hover:bg-[hsl(var(--primary))]/90 shadow-lg shadow-[hsl(var(--primary))]/25 transition-all duration-300",
+        "flash-outline": "border border-[hsl(var(--border))] bg-transparent text-[hsl(var(--primary))] hover:bg-[hsl(var(--primary))] hover:text-[hsl(var(--primary-foreground))] transition-all duration-300",
+        "flash-glow": "bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] hover:bg-[hsl(var(--primary))]/90 shadow-xl shadow-[hsl(var(--primary))]/40 hover:shadow-[hsl(var(--primary))]/60 transition-all duration-300",
       },
       size: {
         default: "h-10 px-4 py-2",

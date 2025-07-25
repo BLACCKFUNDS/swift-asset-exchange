@@ -1,44 +1,42 @@
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Text3D, Center } from "@react-three/drei";
+import { OrbitControls } from "@react-three/drei";
 
 const FloatingCoin = () => {
   return (
-    <mesh rotation={[0, 0, 0]} scale={[1.2, 1.2, 0.3]}>
-      <cylinderGeometry args={[1, 1, 0.2, 32]} />
-      <meshStandardMaterial 
-        color="#ff8c00" 
-        metalness={0.8} 
-        roughness={0.2}
-        emissive="#ff8c00"
-        emissiveIntensity={0.1}
-      />
-    </mesh>
-  );
-};
-
-const USDTText = () => {
-  return (
-    <Center>
-      <Text3D
-        font="/fonts/helvetiker_regular.typeface.json"
-        size={0.3}
-        height={0.05}
-        curveSegments={12}
-        bevelEnabled
-        bevelThickness={0.02}
-        bevelSize={0.01}
-        bevelOffset={0}
-        bevelSegments={5}
-      >
-        USDT
+    <group>
+      {/* Main coin body */}
+      <mesh rotation={[0, 0, 0]} scale={[1.2, 1.2, 0.3]} position={[0, 0, 0]}>
+        <cylinderGeometry args={[1, 1, 0.2, 32]} />
+        <meshStandardMaterial 
+          color="#ff8c00" 
+          metalness={0.8} 
+          roughness={0.2}
+          emissive="#ff8c00"
+          emissiveIntensity={0.1}
+        />
+      </mesh>
+      
+      {/* Inner circle detail */}
+      <mesh rotation={[Math.PI / 2, 0, 0]} scale={[0.8, 0.8, 0.1]} position={[0, 0, 0.15]}>
+        <cylinderGeometry args={[1, 1, 0.05, 32]} />
         <meshStandardMaterial 
           color="#ffffff" 
-          metalness={0.1}
+          metalness={0.3}
           roughness={0.1}
         />
-      </Text3D>
-    </Center>
+      </mesh>
+      
+      {/* Back side detail */}
+      <mesh rotation={[Math.PI / 2, 0, 0]} scale={[0.8, 0.8, 0.1]} position={[0, 0, -0.15]}>
+        <cylinderGeometry args={[1, 1, 0.05, 32]} />
+        <meshStandardMaterial 
+          color="#ffffff" 
+          metalness={0.3}
+          roughness={0.1}
+        />
+      </mesh>
+    </group>
   );
 };
 
@@ -51,10 +49,7 @@ const CryptoScene = () => {
           <pointLight position={[10, 10, 10]} intensity={1} />
           <pointLight position={[-10, -10, -10]} intensity={0.5} color="#ff8c00" />
           
-          <group>
-            <FloatingCoin />
-            <USDTText />
-          </group>
+          <FloatingCoin />
           
           <OrbitControls 
             enableZoom={false} 

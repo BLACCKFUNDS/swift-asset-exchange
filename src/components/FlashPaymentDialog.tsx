@@ -3,6 +3,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent } from "@/components/ui/card";
 import { Copy, Upload, MessageCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
@@ -173,45 +174,62 @@ const FlashPaymentDialog = ({ isOpen, onOpenChange, selectedPlan }: FlashPayment
           </div>
 
           {/* Order Form */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Order Details</h3>
+          <div className="space-y-4 bg-muted/10 p-6 rounded-lg border border-[hsl(var(--flash-border))]">
+            <h3 className="text-lg font-semibold">Complete Your Order</h3>
             
             <div>
-              <Label htmlFor="userWallet">Your Wallet Address</Label>
+              <Label htmlFor="userWallet" className="text-sm font-medium">Your Wallet Address *</Label>
               <Input
                 id="userWallet"
                 value={userWallet}
                 onChange={(e) => setUserWallet(e.target.value)}
                 placeholder="Enter your wallet address where you want to receive flash tokens"
-                className="mt-1"
+                className="mt-2"
               />
+              <p className="text-xs text-muted-foreground mt-1">
+                This is where your flash tokens will be sent
+              </p>
             </div>
 
             <div>
-              <Label htmlFor="flashType">Flash Type</Label>
-              <Input
-                id="flashType"
-                value={flashType}
-                onChange={(e) => setFlashType(e.target.value)}
-                placeholder="e.g., USDT TRC20, BTC, ETH"
-                className="mt-1"
-              />
+              <Label htmlFor="flashType" className="text-sm font-medium">Choose Flash Type *</Label>
+              <Select value={flashType} onValueChange={setFlashType}>
+                <SelectTrigger className="mt-2">
+                  <SelectValue placeholder="Select flash token type" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="USDT-TRC20">USDT TRC20</SelectItem>
+                  <SelectItem value="USDT-BEP20">USDT BEP20</SelectItem>
+                  <SelectItem value="USDT-ERC20">USDT ERC20</SelectItem>
+                  <SelectItem value="BTC">Bitcoin (BTC)</SelectItem>
+                  <SelectItem value="ETH">Ethereum (ETH)</SelectItem>
+                  <SelectItem value="BNB">Binance Coin (BNB)</SelectItem>
+                  <SelectItem value="SOL">Solana (SOL)</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
 
             <div>
-              <Label htmlFor="receipt">Payment Receipt</Label>
-              <div className="mt-1">
+              <Label htmlFor="receipt" className="text-sm font-medium">Upload Payment Receipt *</Label>
+              <div className="mt-2">
                 <Input
                   id="receipt"
                   type="file"
                   accept="image/*,.pdf"
                   onChange={handleFileUpload}
+                  className="cursor-pointer"
                 />
                 {paymentReceipt && (
-                  <p className="text-sm text-muted-foreground mt-1">
-                    Selected: {paymentReceipt.name}
-                  </p>
+                  <div className="flex items-center gap-2 mt-2 p-2 bg-green-500/10 border border-green-500/20 rounded">
+                    <Upload className="w-4 h-4 text-green-500" />
+                    <span className="text-sm text-green-500">
+                      ✓ {paymentReceipt.name}
+                    </span>
+                  </div>
                 )}
+                <p className="text-xs text-muted-foreground mt-1">
+                  Upload screenshot of your payment transaction
+                </p>
               </div>
             </div>
           </div>

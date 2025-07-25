@@ -34,7 +34,7 @@ const TrustSignals = () => {
             Trusted by Thousands
           </Badge>
           <h2 className="text-3xl md:text-4xl font-bold">
-            Why Choose <span className="text-transparent bg-gradient-to-r from-crypto-primary to-crypto-glow bg-clip-text">CryptoFlash</span>
+            Why Choose <span className="text-transparent bg-gradient-to-r from-crypto-primary to-crypto-glow bg-clip-text">Crypto Flasher</span>
           </h2>
         </div>
 

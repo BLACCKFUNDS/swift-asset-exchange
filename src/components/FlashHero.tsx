@@ -43,7 +43,11 @@ const FlashHero = () => {
             </Button>
             
             <div className="pt-4">
-              <Button variant="outline" className="gap-2">
+              <Button 
+                variant="outline" 
+                className="gap-2"
+                onClick={() => window.open('/video-proof.mp4', '_blank')}
+              >
                 <Play className="w-4 h-4" />
                 Video Proofs
               </Button>

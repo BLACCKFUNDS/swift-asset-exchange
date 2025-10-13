@@ -55,13 +55,6 @@ const FlashHeader = () => {
             <MessageCircle className="w-4 h-4" />
             Our Telegram
           </Button>
-          <Button 
-            variant="flash-glow" 
-            size="sm"
-            onClick={() => handleScrollToSection('pricing')}
-          >
-            Enter License!
-          </Button>
           <button
             className="md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}

@@ -239,7 +239,7 @@ const FlashPaymentDialog = ({ isOpen, onOpenChange, selectedPlan }: FlashPayment
             <h4 className="font-semibold mb-2">Business Contact Information</h4>
             <div className="space-y-1 text-sm text-muted-foreground">
               <p>Telegram: @cryptoflasha</p>
-              <p>WhatsApp: +84813504458</p>
+              <p>WhatsApp: +17873715591</p>
               <p className="text-xs mt-2">
                 Accepted payments: USDT (TRC20, BEP20, ERC20), BTC, BNB, ETH
               </p>

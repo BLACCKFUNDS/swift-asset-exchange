@@ -49,10 +49,10 @@ const FlashFooter = () => {
                 variant="flash-outline" 
                 size="sm" 
                 className="w-full justify-start"
-                onClick={() => window.open("https://wa.me/84813504458", "_blank")}
+                onClick={() => window.open("https://wa.me/17873715591", "_blank")}
               >
                 <Phone className="w-4 h-4 mr-2" />
-                +84813504458
+                +17873715591
               </Button>
             </div>
           </div>

@@ -45,8 +45,8 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-crypto-primary" />
-                <a href="https://wa.me/84813504458" className="text-sm text-muted-foreground hover:text-crypto-primary transition-colors">
-                  +84813504458
+                <a href="https://wa.me/17873715591" className="text-sm text-muted-foreground hover:text-crypto-primary transition-colors">
+                  +17873715591
                 </a>
               </div>
               <div className="flex items-center gap-2">

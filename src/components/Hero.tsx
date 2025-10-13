@@ -62,7 +62,7 @@ const Hero = () => {
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-crypto-primary" />
-                <span className="text-sm">WhatsApp: <span className="text-crypto-primary font-medium">+84813504458</span></span>
+                <span className="text-sm">WhatsApp: <span className="text-crypto-primary font-medium">+17873715591</span></span>
               </div>
               <div className="pt-2 border-t border-crypto-border">
                 <p className="text-xs text-muted-foreground mb-2">Payment Methods:</p>

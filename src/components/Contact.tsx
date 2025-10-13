@@ -47,9 +47,9 @@ const Contact = () => {
               <Button 
                 variant="crypto" 
                 className="w-full"
-                onClick={() => window.open('https://wa.me/84813504458', '_blank')}
+                onClick={() => window.open('https://wa.me/17873715591', '_blank')}
               >
-                +84813504458
+                +17873715591
               </Button>
             </CardContent>
           </Card>

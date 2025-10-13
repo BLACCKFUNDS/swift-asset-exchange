@@ -15,7 +15,7 @@ const TopBanner = () => {
           </span>
           <div className="flex items-center gap-3 text-xs">
             <a 
-              href="https://wa.me/your-number" 
+              href="https://wa.me/17873715591" 
               target="_blank" 
               rel="noopener noreferrer"
               className="hover:opacity-80 transition-opacity"
@@ -23,7 +23,7 @@ const TopBanner = () => {
               📱 WhatsApp
             </a>
             <a 
-              href="https://t.me/your-username" 
+              href="https://t.me/cryptoflasha" 
               target="_blank" 
               rel="noopener noreferrer"
               className="hover:opacity-80 transition-opacity"

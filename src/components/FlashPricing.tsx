@@ -16,7 +16,7 @@ const FlashPricing = () => {
       description: "It's perfect for a starter.",
       popular: false,
       features: [
-        "1,500$ Flash USDT,BTC,SOL,BNB,ETH/daily",
+        "2,500$ Flash USDT,BTC,SOL,BNB,ETH/daily",
         "Tokens life - 90 days",
         "Tradable,Swappable",
         "Transferable!",

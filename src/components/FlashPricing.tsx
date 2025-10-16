@@ -63,7 +63,7 @@ const FlashPricing = () => {
       features: [
         "15,000$ Flash USDT",
         "BTC,SOL,BNB,ETH",
-        "Tokens life - 180 days",
+        "Tokens life - 90 days",
         "Tradable",
         "TRC20,ERC20,BNB",
         "100% Safe",
@@ -80,7 +80,7 @@ const FlashPricing = () => {
       features: [
         "20,000$ Flash USDT",
         "BTC,SOL,BNB,TON",
-        "Tokens life - 180 days",
+        "Tokens life - 90 days",
         "Tradable",
         "TRC20,ERC20,BNB",
         "100% Safe",
@@ -97,7 +97,24 @@ const FlashPricing = () => {
       features: [
         "30,000$ Flash USDT",
         "BTC,SOL,BNB,TON",
-        "Tokens life - 180 days",
+        "Tokens life - 90 days",
+        "Tradable",
+        "TRC20,ERC20,BNB",
+        "100% Safe",
+        "Transferable!",
+        "DEPOSIT ALL WALLETS",
+        "DEPOSIT ALL EXCHANGES"
+      ]
+    },
+    {
+      name: "Crown",
+      price: 1200,
+      description: "Elite ultimate package.",
+      popular: true,
+      features: [
+        "60,000$ Flash USDT",
+        "BTC,SOL,BNB,TON,ETH",
+        "Tokens life - 90 days",
         "Tradable",
         "TRC20,ERC20,BNB",
         "100% Safe",

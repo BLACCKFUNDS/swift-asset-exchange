@@ -83,7 +83,7 @@ const FlashFooter = () => {
 
         <div className="border-t border-[hsl(var(--flash-border))] mt-8 pt-8 text-center">
           <p className="text-muted-foreground text-sm">
-            © 2024 FlashUSDT. All rights reserved.
+            © 2022 FlashUSDT. All rights reserved.
           </p>
           <p className="text-xs text-muted-foreground mt-2">
             Professional Flash USDT generation service with 24/7 support

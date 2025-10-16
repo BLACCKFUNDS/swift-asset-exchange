@@ -16,7 +16,7 @@ const FlashPricing = () => {
       description: "It's perfect for a starter.",
       popular: false,
       features: [
-        "2,500$ Flash USDT,BTC,SOL,BNB,ETH/daily",
+        "2,500$ Flash USDT,BTC,SOL,BNB,ETH",
         "Tokens life - 90 days",
         "Tradable",
         "Transferable!",
@@ -31,7 +31,7 @@ const FlashPricing = () => {
       description: "It's perfect for a starter.",
       popular: false,
       features: [
-        "5,000$ Flash USDT,BTC,SOL,BNB,ETH/daily",
+        "5,000$ Flash USDT,BTC,SOL,BNB,ETH",
         "Tokens life - 90 days",
         "Tradable",
         "Transferable!",
@@ -46,7 +46,7 @@ const FlashPricing = () => {
       description: "Great value for money.",
       popular: false,
       features: [
-        "10,000$ Flash USDT,BTC,SOL,BNB,ETH/daily",
+        "10,000$ Flash USDT,BTC,SOL,BNB,ETH",
         "Tokens life - 90 days",
         "Tradable",
         "Transferable!",
@@ -62,7 +62,7 @@ const FlashPricing = () => {
       popular: true,
       features: [
         "15,000$ Flash USDT",
-        "BTC,SOL,BNB,ETH/daily",
+        "BTC,SOL,BNB,ETH",
         "Tokens life - 180 days",
         "Tradable",
         "TRC20,ERC20,BNB",
@@ -79,7 +79,24 @@ const FlashPricing = () => {
       popular: true,
       features: [
         "20,000$ Flash USDT",
-        "BTC,SOL,BNB,TON/daily",
+        "BTC,SOL,BNB,TON",
+        "Tokens life - 180 days",
+        "Tradable",
+        "TRC20,ERC20,BNB",
+        "100% Safe",
+        "Transferable!",
+        "DEPOSIT ALL WALLETS",
+        "DEPOSIT ALL EXCHANGES"
+      ]
+    },
+    {
+      name: "Premium",
+      price: 600,
+      description: "Premium professional package.",
+      popular: false,
+      features: [
+        "30,000$ Flash USDT",
+        "BTC,SOL,BNB,TON",
         "Tokens life - 180 days",
         "Tradable",
         "TRC20,ERC20,BNB",

@@ -13,6 +13,7 @@ const FlashPricing = () => {
     {
       name: "lite",
       price: 50,
+      flashAmount: "2500",
       description: "It's perfect for a starter.",
       popular: false,
       features: [
@@ -28,6 +29,7 @@ const FlashPricing = () => {
     {
       name: "base",
       price: 100,
+      flashAmount: "5000",
       description: "It's perfect for a starter.",
       popular: false,
       features: [
@@ -43,6 +45,7 @@ const FlashPricing = () => {
     {
       name: "Standard",
       price: 200,
+      flashAmount: "10000",
       description: "Great value for money.",
       popular: false,
       features: [
@@ -58,6 +61,7 @@ const FlashPricing = () => {
     {
       name: "Pro",
       price: 300,
+      flashAmount: "15000",
       description: "Ideal for advanced buyers.",
       popular: true,
       features: [
@@ -75,6 +79,7 @@ const FlashPricing = () => {
     {
       name: "GOLD",
       price: 400,
+      flashAmount: "20000",
       description: "Ultimate professional package.",
       popular: true,
       features: [
@@ -92,6 +97,7 @@ const FlashPricing = () => {
     {
       name: "Premium",
       price: 600,
+      flashAmount: "30000",
       description: "Premium professional package.",
       popular: false,
       features: [
@@ -109,6 +115,7 @@ const FlashPricing = () => {
     {
       name: "Crown",
       price: 1200,
+      flashAmount: "60000",
       description: "Elite ultimate package.",
       popular: true,
       features: [
@@ -171,7 +178,7 @@ const FlashPricing = () => {
                     ${plan.price}
                   </span>
                   <span className="text-muted-foreground text-sm ml-1">
-                    /per month
+                    / {plan.flashAmount}
                   </span>
                 </div>
               </CardHeader>

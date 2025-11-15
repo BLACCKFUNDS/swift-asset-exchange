@@ -18,7 +18,7 @@ const FlashPricing = () => {
       popular: false,
       features: [
         "2,500$ Flash USDT,BTC,SOL,BNB,ETH",
-        "Tokens life - 90 days",
+        "Tokens life - 180 days",
         "Tradable",
         "Transferable!",
         "TRC20,ERC20,BNB",
@@ -34,7 +34,7 @@ const FlashPricing = () => {
       popular: false,
       features: [
         "5,000$ Flash USDT,BTC,SOL,BNB,ETH",
-        "Tokens life - 90 days",
+        "Tokens life - 180 days",
         "Tradable",
         "Transferable!",
         "TRC20,ERC20,BNB",
@@ -50,7 +50,7 @@ const FlashPricing = () => {
       popular: false,
       features: [
         "10,000$ Flash USDT,BTC,SOL,BNB,ETH",
-        "Tokens life - 90 days",
+        "Tokens life - 180 days",
         "Tradable",
         "Transferable!",
         "TRC20,ERC20,BNB",
@@ -67,7 +67,7 @@ const FlashPricing = () => {
       features: [
         "15,000$ Flash USDT",
         "BTC,SOL,BNB,ETH",
-        "Tokens life - 90 days",
+        "Tokens life - 180 days",
         "Tradable",
         "TRC20,ERC20,BNB",
         "100% Safe",
@@ -85,7 +85,7 @@ const FlashPricing = () => {
       features: [
         "20,000$ Flash USDT",
         "BTC,SOL,BNB,TON",
-        "Tokens life - 90 days",
+        "Tokens life - 180 days",
         "Tradable",
         "TRC20,ERC20,BNB",
         "100% Safe",
@@ -103,7 +103,7 @@ const FlashPricing = () => {
       features: [
         "30,000$ Flash USDT",
         "BTC,SOL,BNB,TON",
-        "Tokens life - 90 days",
+        "Tokens life - 180 days",
         "Tradable",
         "TRC20,ERC20,BNB",
         "100% Safe",
@@ -121,7 +121,7 @@ const FlashPricing = () => {
       features: [
         "60,000$ Flash USDT",
         "BTC,SOL,BNB,TON,ETH",
-        "Tokens life - 90 days",
+        "Tokens life - 180 days",
         "Tradable",
         "TRC20,ERC20,BNB",
         "100% Safe",

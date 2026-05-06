@@ -20,6 +20,7 @@ const Index = () => {
         <FlashStats />
         <FlashReviews />
         <FlashPricing />
+        <FlashDemoCard />
         <FlashFAQ />
       </main>
       <FlashFooter />

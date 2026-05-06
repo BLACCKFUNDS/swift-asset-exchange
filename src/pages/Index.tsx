@@ -5,6 +5,7 @@ import WhyUs from "@/components/WhyUs";
 import FlashStats from "@/components/FlashStats";
 import FlashReviews from "@/components/FlashReviews";
 import FlashPricing from "@/components/FlashPricing";
+import FlashDemoCard from "@/components/FlashDemoCard";
 import FlashFAQ from "@/components/FlashFAQ";
 import FlashFooter from "@/components/FlashFooter";
 
@@ -19,6 +20,7 @@ const Index = () => {
         <FlashStats />
         <FlashReviews />
         <FlashPricing />
+        <FlashDemoCard />
         <FlashFAQ />
       </main>
       <FlashFooter />

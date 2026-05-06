@@ -172,7 +172,7 @@ const FlashPricing = () => {
               key={index} 
               className={`relative h-full flex flex-col border-[hsl(var(--flash-border))] ${
                 isGreen
-                  ? 'bg-gradient-to-br from-emerald-950 to-green-500/40 border-green-400/60 shadow-[0_0_30px_rgba(34,197,94,0.4)]'
+                  ? 'bg-card/50 border-emerald-500/60 shadow-[0_0_30px_rgba(34,197,94,0.4)]'
                   : plan.popular 
                     ? 'bg-[hsl(var(--flash-primary))]/5 border-[hsl(var(--flash-primary))]/50' 
                     : 'bg-card/50'
@@ -207,7 +207,7 @@ const FlashPricing = () => {
 
               <CardContent className="space-y-6 flex flex-col flex-1">
                 <Button 
-                  variant="flash-glow"
+                  variant={isGreen ? "flash-green" : "flash-glow"}
                   className="w-full"
                   onClick={() => handleBuyClick(plan)}
                 >

@@ -9,6 +9,13 @@ const FlashHero = () => {
     }
   };
 
+  const handleScrollToDemo = () => {
+    const element = document.getElementById('demo-card');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-background dot-pattern overflow-hidden">
       {/* Animated background elements */}
@@ -25,14 +32,21 @@ const FlashHero = () => {
             market <span className="text-[hsl(var(--flash-primary))]">Flash USDT</span>
           </h1>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
             <Button 
               variant="flash-glow" 
               size="xl" 
               onClick={handleScrollToPricing}
-              className="animate-pulse-glow"
+              className="animate-pulse-glow rounded-xl"
             >
               Get Flash
+            </Button>
+            <Button
+              size="xl"
+              onClick={handleScrollToDemo}
+              className="rounded-xl bg-gradient-to-r from-yellow-400 to-amber-500 text-black font-semibold shadow-[0_0_30px_hsl(45_100%_55%/0.5)] hover:brightness-110 hover:shadow-[0_0_40px_hsl(45_100%_55%/0.7)] transition-all duration-300"
+            >
+              Get Demo (Test)
             </Button>
           </div>
 

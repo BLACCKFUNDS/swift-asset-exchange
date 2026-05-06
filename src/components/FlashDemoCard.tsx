@@ -11,22 +11,22 @@ const FlashDemoCard = () => {
   };
 
   return (
-    <section className="py-20 bg-background">
+    <section id="demo-card" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-xl mx-auto">
-          <Card className="relative bg-card/60 border-[hsl(var(--flash-border))] shadow-2xl shadow-[hsl(var(--flash-primary))]/10 rounded-2xl backdrop-blur">
+          <Card className="relative bg-gradient-to-br from-yellow-300 via-amber-400 to-yellow-500 text-black border-yellow-300 shadow-[0_0_50px_rgba(250,204,21,0.5)] rounded-2xl">
             <CardHeader className="text-center pb-2">
-              <CardTitle className="text-2xl font-bold">
+              <CardTitle className="text-2xl font-bold text-black">
                 Mini Software (Flash Test)
               </CardTitle>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-black/70">
                 Perfect to request DEMO(test)
               </p>
               <div className="pt-6">
-                <span className="text-4xl font-bold text-[hsl(var(--flash-primary))]">
+                <span className="text-4xl font-bold text-black">
                   Free Demo
                 </span>
-                <span className="text-muted-foreground text-sm ml-2">
+                <span className="text-black/70 text-sm ml-2">
                   / 5,000 Flash
                 </span>
               </div>

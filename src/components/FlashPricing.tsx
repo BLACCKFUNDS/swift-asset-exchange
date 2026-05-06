@@ -11,11 +11,13 @@ const FlashPricing = () => {
 
   const plans = [
     {
-      name: "lite",
+      name: "Lite",
       price: 50,
-      flashAmount: "2500",
+      flashAmount: "2,500 FlashUSDT",
       description: "It's perfect for a starter.",
       popular: false,
+      badge: null as string | null,
+      tier: "default" as "default" | "green",
       features: [
         "2,500$ Flash USDT,BTC,SOL,BNB,ETH",
         "Tokens life - 180 days",
@@ -27,11 +29,13 @@ const FlashPricing = () => {
       ]
     },
     {
-      name: "base",
+      name: "Base",
       price: 100,
-      flashAmount: "5000",
+      flashAmount: "5,000 FlashUSDT",
       description: "It's perfect for a starter.",
       popular: false,
+      badge: null,
+      tier: "default" as const,
       features: [
         "5,000$ Flash USDT,BTC,SOL,BNB,ETH",
         "Tokens life - 180 days",
@@ -44,12 +48,14 @@ const FlashPricing = () => {
     },
     {
       name: "Standard",
-      price: 200,
-      flashAmount: "10000",
+      price: 500,
+      flashAmount: "25,000 FlashUSDT",
       description: "Great value for money.",
       popular: false,
+      badge: null,
+      tier: "default" as const,
       features: [
-        "10,000$ Flash USDT,BTC,SOL,BNB,ETH",
+        "25,000$ Flash USDT,BTC,SOL,BNB,ETH",
         "Tokens life - 180 days",
         "Tradable",
         "Transferable!",
@@ -60,12 +66,14 @@ const FlashPricing = () => {
     },
     {
       name: "Pro",
-      price: 300,
-      flashAmount: "15000",
+      price: 1000,
+      flashAmount: "50,000 FlashUSDT",
       description: "Ideal for advanced buyers.",
       popular: true,
+      badge: null,
+      tier: "default" as const,
       features: [
-        "15,000$ Flash USDT",
+        "50,000$ Flash USDT",
         "BTC,SOL,BNB,ETH",
         "Tokens life - 180 days",
         "Tradable",
@@ -77,13 +85,15 @@ const FlashPricing = () => {
       ]
     },
     {
-      name: "GOLD",
-      price: 400,
-      flashAmount: "20000",
+      name: "Gold",
+      price: 1500,
+      flashAmount: "100,000 FlashUSDT",
       description: "Ultimate professional package.",
       popular: true,
+      badge: "Most Popular",
+      tier: "green" as const,
       features: [
-        "20,000$ Flash USDT",
+        "100,000$ Flash USDT",
         "BTC,SOL,BNB,TON",
         "Tokens life - 180 days",
         "Tradable",
@@ -96,12 +106,14 @@ const FlashPricing = () => {
     },
     {
       name: "Premium",
-      price: 600,
-      flashAmount: "30000",
+      price: 5000,
+      flashAmount: "500,000 FlashUSDT",
       description: "Premium professional package.",
       popular: false,
+      badge: "Best Value",
+      tier: "green" as const,
       features: [
-        "30,000$ Flash USDT",
+        "500,000$ Flash USDT",
         "BTC,SOL,BNB,TON",
         "Tokens life - 180 days",
         "Tradable",
@@ -114,12 +126,14 @@ const FlashPricing = () => {
     },
     {
       name: "Crown",
-      price: 1200,
-      flashAmount: "60000",
+      price: 10000,
+      flashAmount: "1,000,000 FlashUSDT",
       description: "Elite ultimate package.",
       popular: true,
+      badge: null,
+      tier: "green" as const,
       features: [
-        "60,000$ Flash USDT",
+        "1,000,000$ Flash USDT",
         "BTC,SOL,BNB,TON,ETH",
         "Tokens life - 180 days",
         "Tradable",

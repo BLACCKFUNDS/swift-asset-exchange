@@ -27,17 +27,6 @@ const FlashDemoCard = () => {
                   Free Demo
                 </span>
                 <span className="text-black/70 text-sm ml-2">
-              <CardTitle className="text-2xl font-bold">
-                Mini Software (Flash Test)
-              </CardTitle>
-              <p className="text-sm text-muted-foreground">
-                Perfect to request DEMO(test)
-              </p>
-              <div className="pt-6">
-                <span className="text-4xl font-bold text-[hsl(var(--flash-primary))]">
-                  Free Demo
-                </span>
-                <span className="text-muted-foreground text-sm ml-2">
                   / 5,000 Flash
                 </span>
               </div>

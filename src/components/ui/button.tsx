@@ -23,6 +23,7 @@ const buttonVariants = cva(
         "flash": "bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] hover:bg-[hsl(var(--primary))]/90 shadow-lg shadow-[hsl(var(--primary))]/25 transition-all duration-300",
         "flash-outline": "border border-[hsl(var(--border))] bg-transparent text-[hsl(var(--primary))] hover:bg-[hsl(var(--primary))] hover:text-[hsl(var(--primary-foreground))] transition-all duration-300",
         "flash-glow": "bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] hover:bg-[hsl(var(--primary))]/90 shadow-xl shadow-[hsl(var(--primary))]/40 hover:shadow-[hsl(var(--primary))]/60 transition-all duration-300",
+        "flash-green": "bg-emerald-500 text-white hover:bg-emerald-500/90 shadow-xl shadow-emerald-500/40 hover:shadow-emerald-500/60 transition-all duration-300",
       },
       size: {
         default: "h-10 px-4 py-2",

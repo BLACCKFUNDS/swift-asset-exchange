@@ -207,7 +207,7 @@ const FlashPricing = () => {
 
               <CardContent className="space-y-6 flex flex-col flex-1">
                 <Button 
-                  variant="flash-glow"
+                  variant={isGreen ? "flash-green" : "flash-glow"}
                   className="w-full"
                   onClick={() => handleBuyClick(plan)}
                 >

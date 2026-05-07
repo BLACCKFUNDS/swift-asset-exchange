@@ -170,12 +170,10 @@ const FlashPricing = () => {
             return (
             <Card 
               key={index} 
-              className={`relative h-full flex flex-col border-[hsl(var(--flash-border))] ${
+              className={`relative h-full flex flex-col ${
                 isGreen
-                  ? 'bg-card/50 border-emerald-500/60 shadow-[0_0_30px_rgba(34,197,94,0.4)]'
-                  : plan.popular 
-                    ? 'bg-[hsl(var(--flash-primary))]/5 border-[hsl(var(--flash-primary))]/50' 
-                    : 'bg-card/50'
+                  ? 'bg-card/50 border border-emerald-500/40 shadow-[0_0_10px_rgba(34,197,94,0.25)]'
+                  : 'bg-card/50 border border-[hsl(var(--flash-primary))]/30 shadow-[0_0_10px_hsl(var(--flash-primary)/0.2)]'
               } hover:brightness-110 transition-all duration-300`}
             >
               {plan.badge ? (
@@ -196,7 +194,7 @@ const FlashPricing = () => {
                   {plan.description}
                 </p>
                 <div className="pt-4">
-                  <span className="text-4xl font-bold text-[hsl(var(--flash-primary))]">
+                  <span className={`text-4xl font-bold ${isGreen ? 'text-emerald-500' : 'text-[hsl(var(--flash-primary))]'}`}>
                     ${plan.price}
                   </span>
                   <span className="text-muted-foreground text-sm ml-1">
@@ -219,7 +217,7 @@ const FlashPricing = () => {
                   <ul className="space-y-2">
                     {plan.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start gap-2 text-sm">
-                        <Check className="w-4 h-4 text-[hsl(var(--flash-primary))] mt-0.5 flex-shrink-0" />
+                        <Check className={`w-5 h-5 mt-0.5 flex-shrink-0 ${isGreen ? 'text-emerald-500 stroke-[3]' : 'text-[hsl(var(--flash-primary))]'}`} />
                         <span className="text-muted-foreground">{feature}</span>
                       </li>
                     ))}

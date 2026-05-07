@@ -51,7 +51,12 @@ const FlashHeader = () => {
         </nav>
 
         <div className="flex items-center space-x-2">
-          <Button variant="flash-outline" size="sm" className="hidden sm:flex">
+          <Button
+            variant="flash-outline"
+            size="sm"
+            className="hidden sm:flex"
+            onClick={() => window.open("https://t.me/cryptoflashaagroup", "_blank")}
+          >
             <MessageCircle className="w-4 h-4" />
             Our Telegram
           </Button>

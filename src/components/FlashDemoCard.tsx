@@ -14,19 +14,19 @@ const FlashDemoCard = () => {
     <section id="demo-card" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-xl mx-auto">
-          <Card className="relative bg-gradient-to-br from-yellow-300 via-amber-400 to-yellow-500 text-black border-yellow-300 shadow-[0_0_50px_rgba(250,204,21,0.5)] rounded-2xl">
+          <Card className="relative bg-card/50 text-foreground border border-yellow-400/40 shadow-[0_0_12px_rgba(250,204,21,0.25)] rounded-2xl">
             <CardHeader className="text-center pb-2">
-              <CardTitle className="text-2xl font-bold text-black">
+              <CardTitle className="text-2xl font-bold text-foreground">
                 Mini Software (Flash Test)
               </CardTitle>
-              <p className="text-sm text-black/70">
+              <p className="text-sm text-muted-foreground">
                 Perfect to request DEMO(test)
               </p>
               <div className="pt-6">
-                <span className="text-4xl font-bold text-black">
+                <span className="text-4xl font-bold text-yellow-400">
                   Free Demo
                 </span>
-                <span className="text-black/70 text-sm ml-2">
+                <span className="text-muted-foreground text-sm ml-2">
                   / 5,000 Flash
                 </span>
               </div>
@@ -34,8 +34,7 @@ const FlashDemoCard = () => {
 
             <CardContent className="space-y-6">
               <Button
-                variant="flash-glow"
-                className="w-full rounded-xl h-12 text-base shadow-[0_0_30px_hsl(var(--flash-primary)/0.5)]"
+                className="w-full rounded-xl h-12 text-base bg-gradient-to-r from-yellow-400 to-amber-500 text-black hover:brightness-110 shadow-[0_0_12px_rgba(250,204,21,0.35)] transition-all"
                 onClick={handleGetDemo}
               >
                 <Send className="w-4 h-4 mr-2" />

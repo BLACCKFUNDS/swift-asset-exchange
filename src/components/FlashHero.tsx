@@ -51,7 +51,11 @@ const FlashHero = () => {
           </div>
 
           <div className="space-y-4 pt-8">
-            <Button variant="flash-outline" className="gap-2">
+            <Button
+              variant="flash-outline"
+              className="gap-2"
+              onClick={() => window.open("https://t.me/cryptoflashaagroup", "_blank")}
+            >
               <MessageCircle className="w-4 h-4" />
               Our Telegram channel!
             </Button>

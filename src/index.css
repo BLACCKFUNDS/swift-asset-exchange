@@ -118,6 +118,10 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 24 24' fill='none' stroke='%233b82f6' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' opacity='0.15'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'/></svg>");
+    background-repeat: repeat;
+    background-size: 140px 140px;
+    background-attachment: fixed;
   }
 }
 

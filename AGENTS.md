@@ -1,0 +1,1 @@
+Keep the site client-only and organized around its existing page sections; never imply browser-only purchase forms, uploads, or payments are stored or verified.

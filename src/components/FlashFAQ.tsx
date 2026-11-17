@@ -5,64 +5,56 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const FlashFAQ = () => {
-  const faqItems = [
-    {
-      question: "Can I sell it?",
-      answer: "Yes, our Flash USDT can be traded and swapped on exchanges. However, please note that these are temporary tokens with a specific lifespan depending on your chosen plan."
-    },
-    {
-      question: "Can I use the coins to buy a car or a house?",
-      answer: "Flash tokens are designed for specific use cases and have a temporary nature. We recommend understanding the full scope and limitations before making any major purchases. Contact our support team for detailed guidance."
-    },
-    {
-      question: "How does it work?",
-      answer: "After purchasing a plan, you receive access to our dashboard where you can generate and send Flash USDT/BTC/ETH. The tokens appear in wallets and exchanges just like real tokens but have a predetermined lifespan based on your subscription level."
-    },
-    {
-      question: "What does it look like?",
-      answer: "Flash tokens appear identical to real cryptocurrency in wallets and exchanges. They have the original HASH making them indistinguishable from genuine tokens during their active period."
-    },
-    {
-      question: "What payment methods do you accept?",
-      answer: "We accept USDT (TRC20, BEP20, ERC20), Bitcoin (BTC), Ethereum (ETH), and Binance Coin (BNB). All payments are processed securely through our verified wallet addresses."
-    },
-    {
-      question: "How long does it take to get access?",
-      answer: "After payment verification, you will receive your dashboard access within 24 hours. You'll get login credentials via email along with detailed instructions."
-    }
-  ];
+const faqItems = [
+  {
+    question: "What is Crypto Flasher?",
+    answer: "It is a visual simulation interface. It does not create genuine cryptocurrency or blockchain assets.",
+  },
+  {
+    question: "Will I receive real tokens or a wallet balance?",
+    answer: "No. No tokens are issued or transferred, and this site cannot credit a wallet or make a blockchain transaction.",
+  },
+  {
+    question: "What do the plan prices and amounts represent?",
+    answer: "They are illustrative figures shown within the interface. They are not a promise of real cryptocurrency or financial value.",
+  },
+  {
+    question: "Can this website verify a payment or order?",
+    answer: "No. The page is client-only: it cannot submit an order, store an uploaded receipt, or verify a payment.",
+  },
+  {
+    question: "Which payment methods are listed?",
+    answer: "The page lists USDT (TRC20, BEP20, ERC20), BTC, ETH, BNB, and SOL. Listed wallet addresses are not verified by this simulation.",
+  },
+  {
+    question: "How can I contact the business?",
+    answer: "Use the Telegram or WhatsApp links in the top bar or page footer. Contacting the business does not change the simulation limitations described here.",
+  },
+];
 
-  return (
-    <section id="faq" className="py-20 bg-card/30">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8">
-            FAQ
-          </h2>
-        </div>
-
-        <div className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-4">
-            {faqItems.map((item, index) => (
-              <AccordionItem 
-                key={index} 
-                value={`item-${index}`}
-                className="border border-[hsl(var(--flash-border))] rounded-lg px-6 bg-card/50"
-              >
-                <AccordionTrigger className="text-left hover:text-[hsl(var(--flash-primary))] transition-colors">
-                  {item.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  {item.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
+const FlashFAQ = () => (
+  <section id="faq" className="scroll-mt-20 border-b border-border/70 py-20 md:py-24">
+    <div className="container mx-auto px-4">
+      <div className="mb-10 max-w-2xl">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.12em] text-primary">Questions</p>
+        <h2 className="text-3xl font-semibold text-foreground md:text-5xl">FAQ</h2>
       </div>
-    </section>
-  );
-};
+      <div className="max-w-3xl">
+        <Accordion type="single" collapsible className="space-y-2">
+          {faqItems.map((item, index) => (
+            <AccordionItem key={item.question} value={`item-${index}`} className="border-b border-border px-1">
+              <AccordionTrigger className="text-left text-base font-medium text-foreground hover:text-primary">
+                {item.question}
+              </AccordionTrigger>
+              <AccordionContent className="max-w-2xl text-sm leading-6 text-muted-foreground">
+                {item.answer}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </div>
+    </div>
+  </section>
+);
 
 export default FlashFAQ;

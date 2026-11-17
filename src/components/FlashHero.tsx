@@ -1,78 +1,51 @@
+import { ArrowDown, MessageCircle, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Play } from "lucide-react";
 
 const FlashHero = () => {
-  const handleScrollToPricing = () => {
-    const element = document.getElementById('pricing');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleScrollToDemo = () => {
-    const element = document.getElementById('demo-card');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const scrollToPricing = () => {
+    document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-background dot-pattern overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-[hsl(var(--flash-primary))]/10 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-[hsl(var(--flash-accent))]/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
-      </div>
-
-      <div className="container mx-auto px-4 text-center relative z-10">
-        <div className="max-w-4xl mx-auto space-y-8 animate-slide-up">
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-            The <span className="gradient-text">#1 generator</span> on the
-            <br />
-            market <span className="text-[hsl(var(--flash-primary))]">Flash USDT</span>
+    <section className="hero-surface relative flex min-h-[680px] items-center overflow-hidden border-b border-border/70">
+      <div className="container relative z-10 mx-auto px-4 py-24 md:py-32">
+        <div className="max-w-2xl animate-slide-up">
+          <div className="mb-8 inline-flex items-center gap-2 border border-primary/30 bg-background/75 px-3 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-primary backdrop-blur-sm">
+            <span className="h-2 w-2 rounded-full bg-primary" aria-hidden="true" />
+            Simulation interface · No real crypto
+          </div>
+          <p className="mb-4 text-sm font-medium uppercase tracking-[0.12em] text-primary">
+            Crypto Flasher
+          </p>
+          <h1 className="max-w-xl text-5xl font-semibold leading-[1.08] text-foreground md:text-7xl">
+            Explore a crypto interface, not a real asset.
           </h1>
-          
-          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
-            <Button 
-              variant="flash-glow" 
-              size="xl" 
-              onClick={handleScrollToPricing}
-              className="animate-pulse-glow rounded-xl"
-            >
-              Get Flash
+          <p className="mt-6 max-w-xl text-base leading-7 text-muted-foreground md:text-lg">
+            Crypto Flasher is a visual simulation. It does not create genuine
+            blockchain assets, send transactions, or transfer funds.
+          </p>
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <Button variant="flash-glow" size="lg" onClick={scrollToPricing}>
+              View simulation tiers <ArrowDown aria-hidden="true" />
             </Button>
-            <Button
-              size="xl"
-              onClick={handleScrollToDemo}
-              className="rounded-xl bg-gradient-to-r from-yellow-400 to-amber-500 text-black font-semibold shadow-[0_0_30px_hsl(45_100%_55%/0.5)] hover:brightness-110 hover:shadow-[0_0_40px_hsl(45_100%_55%/0.7)] transition-all duration-300"
-            >
-              Get Demo (Test)
+            <Button variant="flash-outline" size="lg" asChild>
+              <a href="https://t.me/cryptoflasha" target="_blank" rel="noopener noreferrer">
+                <Send aria-hidden="true" /> Telegram
+              </a>
+            </Button>
+            <Button variant="ghost" size="lg" asChild>
+              <a href="https://wa.me/17873715591" target="_blank" rel="noopener noreferrer">
+                <MessageCircle aria-hidden="true" /> WhatsApp
+              </a>
             </Button>
           </div>
-
-          <div className="space-y-4 pt-8">
-            <Button
-              variant="flash-outline"
-              className="gap-2"
-              onClick={() => window.open("https://t.me/cryptoflashaagroup", "_blank")}
-            >
-              <MessageCircle className="w-4 h-4" />
-              Our Telegram channel!
-            </Button>
-            
-            <div className="pt-4">
-              <Button 
-                variant="outline" 
-                className="gap-2"
-                onClick={() => window.open('/video-proof.mp4', '_blank')}
-              >
-                <Play className="w-4 h-4" />
-                Video Proofs
-              </Button>
-            </div>
-          </div>
+          <p className="mt-7 max-w-xl border-l-2 border-primary/60 pl-4 text-sm leading-6 text-muted-foreground">
+            Do not send cryptocurrency expecting genuine tokens, a wallet credit,
+            or a blockchain transfer.
+          </p>
         </div>
       </div>
+      <div className="pointer-events-none absolute bottom-0 right-0 h-px w-2/5 bg-gradient-to-l from-primary/70 to-transparent" aria-hidden="true" />
     </section>
   );
 };

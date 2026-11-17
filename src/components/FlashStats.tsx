@@ -1,41 +1,21 @@
-const FlashStats = () => {
-  const stats = [
-    {
-      value: "1000+",
-      label: "Bought a Subscription"
-    },
-    {
-      value: "312.4M",
-      label: "Total Flash Sent"
-    },
-    {
-      value: "988+",
-      label: "Positive Ratings"
-    },
-    {
-      value: "4.4B",
-      label: "Total Flash we have))))"
-    }
-  ];
+const facts = [
+  { value: "None", label: "Assets created" },
+  { value: "None", label: "Blockchain transfers" },
+  { value: "Unavailable", label: "Payment verification" },
+  { value: "Local only", label: "Receipt handling" },
+];
 
-  return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {stats.map((stat, index) => (
-            <div key={index} className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-[hsl(var(--flash-primary))] mb-2">
-                {stat.value}
-              </div>
-              <div className="text-muted-foreground text-sm">
-                {stat.label}
-              </div>
-            </div>
-          ))}
+const FlashStats = () => (
+  <section className="border-b border-border/70 bg-card/40 py-12 md:py-16" aria-label="Simulation limitations">
+    <div className="container mx-auto grid grid-cols-2 gap-x-6 gap-y-8 px-4 md:grid-cols-4">
+      {facts.map((fact) => (
+        <div key={fact.label} className="border-l border-primary/40 pl-4">
+          <p className="text-xl font-semibold text-primary md:text-2xl">{fact.value}</p>
+          <p className="mt-1 text-xs leading-5 text-muted-foreground md:text-sm">{fact.label}</p>
         </div>
-      </div>
-    </section>
-  );
-};
+      ))}
+    </div>
+  </section>
+);
 
 export default FlashStats;

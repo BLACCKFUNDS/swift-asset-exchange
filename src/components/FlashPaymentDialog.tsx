@@ -1,11 +1,10 @@
 import { useState } from "react";
+import { ExternalLink, FileUp, MessageCircle } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Card, CardContent } from "@/components/ui/card";
-import { Copy, Upload, MessageCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 interface FlashPaymentDialogProps {
@@ -14,8 +13,11 @@ interface FlashPaymentDialogProps {
   selectedPlan?: {
     name: string;
     price: number;
+    flashAmount: number;
   } | null;
 }
+
+const paymentMethods = ["USDT · TRC20", "USDT · BEP20", "USDT · ERC20", "Bitcoin · BTC", "Ethereum · ETH", "Solana · SOL", "BNB"];
 
 const FlashPaymentDialog = ({ isOpen, onOpenChange, selectedPlan }: FlashPaymentDialogProps) => {
   const [userWallet, setUserWallet] = useState("");
@@ -24,260 +26,113 @@ const FlashPaymentDialog = ({ isOpen, onOpenChange, selectedPlan }: FlashPayment
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const paymentMethods = [
-    {
-      name: "USDT TRC20",
-      address: "TYrW6KbjvaM2oYSPanht6LC2DLBwYR9gfh",
-      network: "TRC20",
-      icon: "₮"
-    },
-    {
-      name: "USDT BEP20",
-      address: "0x554140f7aBA6d7e26a7815683a15770Db4Cf74e1",
-      network: "BEP20",
-      icon: "₮"
-    },
-    {
-      name: "USDT ERC20",
-      address: "0x554140f7aBA6d7e26a7815683a15770Db4Cf74e1",
-      network: "ERC20",
-      icon: "₮"
-    },
-    {
-      name: "Bitcoin",
-      address: "bc1q6059p46a0gdyxltplzhcmwxp7jnfr88nhh95ar",
-      network: "BTC",
-      icon: "₿"
-    },
-    {
-      name: "Ethereum",
-      address: "0x554140f7aBA6d7e26a7815683a15770Db4Cf74e1",
-      network: "ETH",
-      icon: "Ξ"
-    },
-    {
-      name: "Solana",
-      address: "ZWVARjXeBnEyA4ZNd5itNLnLWkNr5k479avD3QwZnkK",
-      network: "SOL",
-      icon: "◎"
-    },
-    {
-      name: "BNB",
-      address: "0x554140f7aBA6d7e26a7815683a15770Db4Cf74e1",
-      network: "BNB",
-      icon: "◆"
-    }
-  ];
-
-  const copyToClipboard = async (address: string, methodName: string) => {
-    try {
-      await navigator.clipboard.writeText(address);
+  const handlePreview = async () => {
+    if (!userWallet.trim() || !flashType || !paymentReceipt) {
       toast({
-        title: "Address Copied!",
-        description: `${methodName} address copied to clipboard`,
-      });
-    } catch (err) {
-      toast({
-        title: "Copy Failed",
-        description: "Please copy the address manually",
-        variant: "destructive",
-      });
-    }
-  };
-
-  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      setPaymentReceipt(file);
-    }
-  };
-
-  const handleSubmitOrder = async () => {
-    if (!userWallet || !flashType || !paymentReceipt) {
-      toast({
-        title: "Missing Information",
-        description: "Please fill in all required fields",
+        title: "Complete the preview fields",
+        description: "Add a wallet address, select a network, and choose a local receipt file.",
         variant: "destructive",
       });
       return;
     }
 
     setIsSubmitting(true);
-    
-    // Simulate order submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
+    await new Promise((resolve) => setTimeout(resolve, 350));
     toast({
-      title: "Order Submitted!",
-      description: "Your order has been submitted successfully. Check your email for confirmation.",
+      title: "Preview complete",
+      description: "Nothing was sent, uploaded, stored, or verified. No order was created.",
     });
-    
     setIsSubmitting(false);
     onOpenChange(false);
-    
-    // Reset form
     setUserWallet("");
     setFlashType("");
     setPaymentReceipt(null);
   };
 
-  const handleContactSupport = () => {
-    window.open("https://t.me/cryptoflasha", "_blank");
-  };
-
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-card border-[hsl(var(--flash-border))]">
-        <DialogHeader>
-          <DialogTitle className="text-2xl font-bold text-center">
-            Complete Your Purchase
-          </DialogTitle>
+      <DialogContent className="max-h-[90vh] max-w-3xl overflow-y-auto border-border bg-card">
+        <DialogHeader className="space-y-3">
+          <DialogTitle className="text-xl font-semibold text-foreground">Simulation details</DialogTitle>
           {selectedPlan && (
-            <div className="text-center text-muted-foreground">
-              <p>Plan: <span className="text-[hsl(var(--flash-primary))] font-semibold capitalize">{selectedPlan.name}</span></p>
-              <p>Amount: <span className="text-[hsl(var(--flash-primary))] font-semibold">${selectedPlan.price}</span></p>
-            </div>
+            <p className="text-sm text-muted-foreground">
+              {selectedPlan.name} · ${new Intl.NumberFormat("en-US").format(selectedPlan.price)} · {new Intl.NumberFormat("en-US").format(selectedPlan.flashAmount)} illustrative units
+            </p>
           )}
         </DialogHeader>
 
-        <div className="space-y-6">
-          {/* Payment Methods */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Select Payment Method</h3>
-            <div className="grid md:grid-cols-2 gap-4">
-              {paymentMethods.map((method, index) => (
-                <Card key={index} className="border-[hsl(var(--flash-border))] hover:border-[hsl(var(--flash-primary))]/50 transition-colors">
-                  <CardContent className="p-4">
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center gap-2">
-                        <span className="text-2xl">{method.icon}</span>
-                        <div>
-                          <h4 className="font-semibold">{method.name}</h4>
-                          <p className="text-xs text-muted-foreground">{method.network}</p>
-                        </div>
-                      </div>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => copyToClipboard(method.address, method.name)}
-                      >
-                        <Copy className="w-4 h-4" />
-                      </Button>
-                    </div>
-                    <div className="bg-muted/50 p-2 rounded text-xs font-mono break-all">
-                      {method.address}
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
+        <div className="border-l-2 border-primary bg-primary/5 px-4 py-3 text-sm leading-6 text-foreground">
+          <strong>This simulation does not accept or process payments.</strong>
+          <p className="mt-1 text-muted-foreground">No payment addresses are provided. No genuine crypto, wallet credit, order, or blockchain transfer is created.</p>
+        </div>
 
-          {/* Order Form */}
-          <div className="space-y-4 bg-muted/10 p-6 rounded-lg border border-[hsl(var(--flash-border))]">
-            <h3 className="text-lg font-semibold">Complete Your Order</h3>
-            
-            <div>
-              <Label htmlFor="userWallet" className="text-sm font-medium">Your Wallet Address *</Label>
-              <Input
-                id="userWallet"
-                value={userWallet}
-                onChange={(e) => setUserWallet(e.target.value)}
-                placeholder="Enter your wallet address where you want to receive flash tokens"
-                className="mt-2"
-              />
-              <p className="text-xs text-muted-foreground mt-1">
-                This is where your flash tokens will be sent
-              </p>
-            </div>
-
-            <div>
-              <Label htmlFor="flashType" className="text-sm font-medium">Choose Flash Type *</Label>
-              <Select value={flashType} onValueChange={setFlashType}>
-                <SelectTrigger className="mt-2">
-                  <SelectValue placeholder="Select flash token type" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="USDT-TRC20">USDT TRC20</SelectItem>
-                  <SelectItem value="USDT-BEP20">USDT BEP20</SelectItem>
-                  <SelectItem value="USDT-ERC20">USDT ERC20</SelectItem>
-                  <SelectItem value="BTC">Bitcoin (BTC)</SelectItem>
-                  <SelectItem value="ETH">Ethereum (ETH)</SelectItem>
-                  <SelectItem value="BNB">Binance Coin (BNB)</SelectItem>
-                  <SelectItem value="SOL">Solana (SOL)</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-
-            <div>
-              <Label htmlFor="receipt" className="text-sm font-medium">Upload Payment Receipt *</Label>
-              <div className="mt-2">
-                <Input
-                  id="receipt"
-                  type="file"
-                  accept="image/*,.pdf"
-                  onChange={handleFileUpload}
-                  className="cursor-pointer"
-                />
-                {paymentReceipt && (
-                  <div className="flex items-center gap-2 mt-2 p-2 bg-green-500/10 border border-green-500/20 rounded">
-                    <Upload className="w-4 h-4 text-green-500" />
-                    <span className="text-sm text-green-500">
-                      ✓ {paymentReceipt.name}
-                    </span>
-                  </div>
-                )}
-                <p className="text-xs text-muted-foreground mt-1">
-                  Upload screenshot of your payment transaction
-                </p>
+        <section aria-labelledby="payment-addresses-title">
+          <h3 id="payment-addresses-title" className="mb-3 text-sm font-semibold text-foreground">Payment methods previously listed</h3>
+          <div className="grid gap-2 sm:grid-cols-2">
+            {paymentMethods.map((method) => (
+              <div key={method} className="border border-border bg-background/70 px-3 py-2.5 text-sm text-muted-foreground">
+                {method}
               </div>
-            </div>
+            ))}
           </div>
+        </section>
 
-          {/* Contact Info */}
-          <div className="bg-muted/20 p-4 rounded-lg">
-            <h4 className="font-semibold mb-2">Business Contact Information</h4>
-            <div className="space-y-1 text-sm text-muted-foreground">
-              <p>Telegram: @cryptoflasha</p>
-              <p>WhatsApp: +17873715591</p>
-              <p className="text-xs mt-2">
-                Accepted payments: USDT (TRC20, BEP20, ERC20), BTC, BNB, ETH
+        <section className="space-y-4 border-t border-border pt-5" aria-labelledby="preview-fields-title">
+          <div>
+            <h3 id="preview-fields-title" className="text-sm font-semibold text-foreground">Local preview fields</h3>
+            <p className="mt-1 text-xs leading-5 text-muted-foreground">These details stay in this browser session and are not sent or saved.</p>
+          </div>
+          <div>
+            <Label htmlFor="userWallet">Wallet address (preview only)</Label>
+            <Input
+              id="userWallet"
+              value={userWallet}
+              onChange={(event) => setUserWallet(event.target.value)}
+              placeholder="Enter a wallet address"
+              className="mt-2"
+              autoComplete="off"
+            />
+          </div>
+          <div>
+            <Label htmlFor="flashType">Network for the simulation</Label>
+            <Select value={flashType} onValueChange={setFlashType}>
+              <SelectTrigger id="flashType" className="mt-2">
+                <SelectValue placeholder="Choose a network" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="USDT-TRC20">USDT · TRC20</SelectItem>
+                <SelectItem value="USDT-BEP20">USDT · BEP20</SelectItem>
+                <SelectItem value="USDT-ERC20">USDT · ERC20</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <div>
+            <Label htmlFor="receipt">Receipt file (local preview only)</Label>
+            <Input
+              id="receipt"
+              type="file"
+              accept="image/*,.pdf"
+              onChange={(event) => setPaymentReceipt(event.target.files?.[0] ?? null)}
+              className="mt-2 cursor-pointer"
+            />
+            {paymentReceipt && (
+              <p className="mt-2 flex items-center gap-2 text-xs text-primary">
+                <FileUp className="h-4 w-4" aria-hidden="true" /> {paymentReceipt.name} — remains on this device
               </p>
-            </div>
+            )}
           </div>
+        </section>
 
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3">
-            <Button
-              variant="flash-glow"
-              onClick={handleSubmitOrder}
-              disabled={isSubmitting || !userWallet || !flashType || !paymentReceipt}
-              className="flex-1"
-            >
-              {isSubmitting ? "Submitting..." : "Submit Order"}
-            </Button>
-            
-            <Button
-              variant="flash-outline"
-              onClick={handleContactSupport}
-              className="flex-1"
-            >
-              <MessageCircle className="w-4 h-4 mr-2" />
-              Contact Support
-            </Button>
-            
-            <Button
-              variant="outline"
-              onClick={() => onOpenChange(false)}
-            >
-              Close
-            </Button>
-          </div>
-
-          <div className="text-xs text-muted-foreground text-center">
-            <p>After payment, you will receive access to your personal dashboard within 24 hours.</p>
-            <p>All transactions are processed securely. Contact support for any assistance.</p>
-          </div>
+        <div className="flex flex-col gap-3 border-t border-border pt-5 sm:flex-row">
+          <Button variant="flash-glow" className="sm:flex-1" onClick={handlePreview} disabled={isSubmitting}>
+            {isSubmitting ? "Finishing preview…" : "Finish local preview"}
+          </Button>
+          <Button variant="flash-outline" asChild>
+            <a href="https://t.me/cryptoflasha" target="_blank" rel="noopener noreferrer">
+              <MessageCircle aria-hidden="true" /> Contact on Telegram <ExternalLink aria-hidden="true" />
+            </a>
+          </Button>
+          <Button variant="outline" onClick={() => onOpenChange(false)}>Close</Button>
         </div>
       </DialogContent>
     </Dialog>

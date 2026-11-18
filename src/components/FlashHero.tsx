@@ -1,5 +1,6 @@
 import { ArrowDown, MessageCircle, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import heroArtwork from "@/assets/crypto-lab-aqua.jpg";
 
 const FlashHero = () => {
   const scrollToPricing = () => {
@@ -8,6 +9,15 @@ const FlashHero = () => {
 
   return (
     <section className="hero-surface relative flex min-h-[680px] items-center overflow-hidden border-b border-border/70">
+      <img
+        src={heroArtwork}
+        alt=""
+        width={1600}
+        height={1024}
+        className="absolute inset-0 h-full w-full object-cover object-center"
+        aria-hidden="true"
+      />
+      <div className="absolute inset-0 bg-background/45" aria-hidden="true" />
       <div className="container relative z-10 mx-auto px-4 py-24 md:py-32">
         <div className="max-w-2xl animate-slide-up">
           <div className="mb-8 inline-flex items-center gap-2 border border-primary/30 bg-background/75 px-3 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-primary backdrop-blur-sm">

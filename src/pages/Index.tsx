@@ -10,7 +10,7 @@ import FlashFooter from "@/components/FlashFooter";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div id="top" className="min-h-screen">
       <TopBanner />
       <FlashHeader />
       <main>

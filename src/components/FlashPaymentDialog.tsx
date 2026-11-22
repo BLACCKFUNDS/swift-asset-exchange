@@ -1,11 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ExternalLink, FileUp, MessageCircle } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useToast } from "@/hooks/use-toast";
 
 interface FlashPaymentDialogProps {
   isOpen: boolean;
@@ -23,27 +22,27 @@ const FlashPaymentDialog = ({ isOpen, onOpenChange, selectedPlan }: FlashPayment
   const [userWallet, setUserWallet] = useState("");
   const [flashType, setFlashType] = useState("");
   const [paymentReceipt, setPaymentReceipt] = useState<File | null>(null);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
+  const [feedback, setFeedback] = useState("");
+  const [previewComplete, setPreviewComplete] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      setUserWallet("");
+      setFlashType("");
+      setPaymentReceipt(null);
+      setFeedback("");
+      setPreviewComplete(false);
+    }
+  }, [isOpen]);
 
   const handlePreview = async () => {
     if (!userWallet.trim() || !flashType || !paymentReceipt) {
-      toast({
-        title: "Complete the preview fields",
-        description: "Add a wallet address, select a network, and choose a local receipt file.",
-        variant: "destructive",
-      });
+      setFeedback("Complete the wallet, network, and local receipt fields to finish this preview.");
       return;
     }
 
-    setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 350));
-    toast({
-      title: "Preview complete",
-      description: "Nothing was sent, uploaded, stored, or verified. No order was created.",
-    });
-    setIsSubmitting(false);
-    onOpenChange(false);
+    setFeedback("Preview complete. Nothing was sent, uploaded, stored, or verified. No order was created.");
+    setPreviewComplete(true);
     setUserWallet("");
     setFlashType("");
     setPaymentReceipt(null);
@@ -60,6 +59,15 @@ const FlashPaymentDialog = ({ isOpen, onOpenChange, selectedPlan }: FlashPayment
             </p>
           )}
         </DialogHeader>
+
+        {feedback && (
+          <p
+            role={previewComplete ? "status" : "alert"}
+            className={`border-l-2 px-4 py-3 text-sm leading-6 ${previewComplete ? "border-primary bg-primary/5 text-foreground" : "border-destructive bg-destructive/10 text-destructive-foreground"}`}
+          >
+            {feedback}
+          </p>
+        )}
 
         <div className="border-l-2 border-primary bg-primary/5 px-4 py-3 text-sm leading-6 text-foreground">
           <strong>This simulation does not accept or process payments.</strong>
@@ -124,8 +132,8 @@ const FlashPaymentDialog = ({ isOpen, onOpenChange, selectedPlan }: FlashPayment
         </section>
 
         <div className="flex flex-col gap-3 border-t border-border pt-5 sm:flex-row">
-          <Button variant="flash-glow" className="sm:flex-1" onClick={handlePreview} disabled={isSubmitting}>
-            {isSubmitting ? "Finishing preview…" : "Finish local preview"}
+          <Button variant="flash-glow" className="sm:flex-1" onClick={handlePreview} disabled={previewComplete}>
+            {previewComplete ? "Preview complete" : "Finish local preview"}
           </Button>
           <Button variant="flash-outline" asChild>
             <a href="https://t.me/cryptoflasha" target="_blank" rel="noopener noreferrer">

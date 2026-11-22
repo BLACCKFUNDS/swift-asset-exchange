@@ -1,71 +1,104 @@
-import { useState } from "react";
-import { Menu, X, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const navigation = [
-  { label: "Overview", id: "why-us" },
-  { label: "Plans", id: "pricing" },
-  { label: "FAQ", id: "faq" },
-  { label: "Contact", id: "contact" },
-];
+import { MessageCircle, Menu } from "lucide-react";
+import { useState } from "react";
 
 const FlashHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const scrollToSection = (sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+  const handleScrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
     setIsMenuOpen(false);
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/80 bg-background/95 backdrop-blur-md">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        <a className="flex items-center gap-3" href="#top" aria-label="Crypto Flasher home">
-          <span className="flex h-9 w-9 items-center justify-center border border-primary/40 bg-primary/10 text-primary">
-            <Zap className="h-5 w-5" aria-hidden="true" />
-          </span>
-          <span className="text-base font-semibold tracking-[0.02em] text-foreground">Crypto Flasher</span>
-        </a>
-
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Main navigation">
-          {navigation.map((item) => (
-            <Button
-              key={item.id}
-              variant="ghost"
-              size="sm"
-              className="text-muted-foreground hover:text-primary"
-              onClick={() => scrollToSection(item.id)}
-            >
-              {item.label}
-            </Button>
-          ))}
+    <header className="sticky top-0 w-full z-50 bg-background/95 backdrop-blur-sm border-b border-[hsl(var(--flash-border))]">
+      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+        <div className="flex items-center space-x-3">
+          <div className="w-8 h-8 bg-[hsl(var(--flash-primary))] rounded-full flex items-center justify-center animate-pulse-glow">
+            <span className="text-[hsl(var(--flash-primary-foreground))] font-bold text-sm">F</span>
+          </div>
+          <span className="text-xl font-bold text-foreground">FlashUSDT</span>
+        </div>
+        
+        <nav className="hidden md:flex items-center space-x-6">
+          <button 
+            onClick={() => handleScrollToSection('why-us')}
+            className="text-muted-foreground hover:text-[hsl(var(--flash-primary))] transition-colors"
+          >
+            Why Us
+          </button>
+          <button 
+            onClick={() => handleScrollToSection('reviews')}
+            className="text-muted-foreground hover:text-[hsl(var(--flash-primary))] transition-colors"
+          >
+            Reviews
+          </button>
+          <button 
+            onClick={() => handleScrollToSection('pricing')}
+            className="text-muted-foreground hover:text-[hsl(var(--flash-primary))] transition-colors"
+          >
+            Prices
+          </button>
+          <button 
+            onClick={() => handleScrollToSection('faq')}
+            className="text-muted-foreground hover:text-[hsl(var(--flash-primary))] transition-colors"
+          >
+            FAQ
+          </button>
         </nav>
 
-        <Button
-          className="md:hidden"
-          variant="outline"
-          size="icon"
-          aria-label={isMenuOpen ? "Close navigation" : "Open navigation"}
-          aria-expanded={isMenuOpen}
-          onClick={() => setIsMenuOpen((open) => !open)}
-        >
-          {isMenuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
-        </Button>
+        <div className="flex items-center space-x-2">
+          <Button
+            variant="flash-outline"
+            size="sm"
+            className="hidden sm:flex"
+            onClick={() => window.open("https://t.me/cryptoflashaagroup", "_blank")}
+          >
+            <MessageCircle className="w-4 h-4" />
+            Our Telegram
+          </Button>
+          <button
+            className="md:hidden"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <Menu className="w-6 h-6" />
+          </button>
+        </div>
       </div>
 
+      {/* Mobile menu */}
       {isMenuOpen && (
-        <nav className="border-t border-border bg-background px-4 py-3 md:hidden" aria-label="Mobile navigation">
-          {navigation.map((item) => (
-            <Button
-              key={item.id}
-              variant="ghost"
-              className="w-full justify-start text-muted-foreground"
-              onClick={() => scrollToSection(item.id)}
+        <div className="md:hidden border-t border-[hsl(var(--flash-border))] bg-background/95 backdrop-blur-sm">
+          <div className="container mx-auto px-4 py-4 space-y-2">
+            <button 
+              onClick={() => handleScrollToSection('why-us')}
+              className="block w-full text-left py-2 text-muted-foreground hover:text-[hsl(var(--flash-primary))]"
             >
-              {item.label}
-            </Button>
-          ))}
-        </nav>
+              Why Us
+            </button>
+            <button 
+              onClick={() => handleScrollToSection('reviews')}
+              className="block w-full text-left py-2 text-muted-foreground hover:text-[hsl(var(--flash-primary))]"
+            >
+              Reviews
+            </button>
+            <button 
+              onClick={() => handleScrollToSection('pricing')}
+              className="block w-full text-left py-2 text-muted-foreground hover:text-[hsl(var(--flash-primary))]"
+            >
+              Prices
+            </button>
+            <button 
+              onClick={() => handleScrollToSection('faq')}
+              className="block w-full text-left py-2 text-muted-foreground hover:text-[hsl(var(--flash-primary))]"
+            >
+              FAQ
+            </button>
+          </div>
+        </div>
       )}
     </header>
   );

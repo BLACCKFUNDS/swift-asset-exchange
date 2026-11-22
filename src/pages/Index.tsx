@@ -5,12 +5,13 @@ import WhyUs from "@/components/WhyUs";
 import FlashStats from "@/components/FlashStats";
 import FlashReviews from "@/components/FlashReviews";
 import FlashPricing from "@/components/FlashPricing";
+import FlashDemoCard from "@/components/FlashDemoCard";
 import FlashFAQ from "@/components/FlashFAQ";
 import FlashFooter from "@/components/FlashFooter";
 
 const Index = () => {
   return (
-    <div id="top" className="min-h-screen">
+    <div className="min-h-screen">
       <TopBanner />
       <FlashHeader />
       <main>
@@ -19,6 +20,7 @@ const Index = () => {
         <FlashStats />
         <FlashReviews />
         <FlashPricing />
+        <FlashDemoCard />
         <FlashFAQ />
       </main>
       <FlashFooter />

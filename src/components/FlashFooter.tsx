@@ -1,43 +1,97 @@
-import { MessageCircle, Send, Zap } from "lucide-react";
+import { MessageCircle, Phone } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-const FlashFooter = () => (
-  <footer id="contact" className="scroll-mt-20 bg-card/40">
-    <div className="container mx-auto grid gap-10 px-4 py-14 md:grid-cols-[1.2fr_1fr_1fr]">
-      <div>
-        <a className="mb-4 inline-flex items-center gap-3" href="#top">
-          <span className="flex h-9 w-9 items-center justify-center border border-primary/40 bg-primary/10 text-primary">
-            <Zap className="h-5 w-5" aria-hidden="true" />
-          </span>
-          <span className="text-lg font-semibold text-foreground">Crypto Flasher</span>
-        </a>
-        <p className="max-w-sm text-sm leading-6 text-muted-foreground">
-          A visual simulation only. This site does not create genuine crypto assets or blockchain transfers.
-        </p>
-      </div>
-      <div>
-        <h2 className="mb-4 text-sm font-semibold text-foreground">Contact</h2>
-        <div className="flex flex-col items-start gap-3 text-sm text-muted-foreground">
-          <a className="inline-flex items-center gap-2 transition-colors hover:text-primary" href="https://t.me/cryptoflasha" target="_blank" rel="noopener noreferrer">
-            <Send className="h-4 w-4" aria-hidden="true" /> Telegram · @cryptoflasha
-          </a>
-          <a className="inline-flex items-center gap-2 transition-colors hover:text-primary" href="https://wa.me/17873715591" target="_blank" rel="noopener noreferrer">
-            <MessageCircle className="h-4 w-4" aria-hidden="true" /> WhatsApp · +17873715591
-          </a>
+const FlashFooter = () => {
+  return (
+    <footer className="bg-card border-t border-[hsl(var(--flash-border))] py-12">
+      <div className="container mx-auto px-4">
+        <div className="grid md:grid-cols-4 gap-8">
+          {/* Brand */}
+          <div className="col-span-2 md:col-span-1">
+            <div className="flex items-center space-x-3 mb-4">
+              <div className="w-8 h-8 bg-[hsl(var(--flash-primary))] rounded-full flex items-center justify-center">
+                <span className="text-[hsl(var(--flash-primary-foreground))] font-bold text-sm">F</span>
+              </div>
+              <span className="text-xl font-bold">FlashUSDT</span>
+            </div>
+            <p className="text-muted-foreground text-sm">
+              The #1 Flash USDT generator on the market with original HASH smart contracts.
+            </p>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h3 className="font-semibold mb-4">Services</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li>Flash USDT Generation</li>
+              <li>Flash BTC</li>
+              <li>Flash ETH</li>
+              <li>Flash BNB</li>
+              <li>Flash SOL</li>
+              <li>Flash TON</li>
+            </ul>
+          </div>
+
+          {/* Support */}
+          <div>
+            <h3 className="font-semibold mb-4">Support</h3>
+            <div className="space-y-3">
+              <Button 
+                variant="flash-outline" 
+                size="sm" 
+                className="w-full justify-start"
+                onClick={() => window.open("https://t.me/cryptoflasha", "_blank")}
+              >
+                <MessageCircle className="w-4 h-4 mr-2" />
+                @cryptoflasha
+              </Button>
+              <Button 
+                variant="flash-outline" 
+                size="sm" 
+                className="w-full justify-start"
+                onClick={() => window.open("https://wa.me/17873715591", "_blank")}
+              >
+                <Phone className="w-4 h-4 mr-2" />
+                +17873715591
+              </Button>
+            </div>
+          </div>
+
+          {/* Payment Methods */}
+          <div>
+            <h3 className="font-semibold mb-4">Payment Methods</h3>
+            <div className="space-y-2 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2">
+                <span>₮</span>
+                <span>USDT (TRC20, BEP20, ERC20)</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span>₿</span>
+                <span>Bitcoin (BTC)</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span>Ξ</span>
+                <span>Ethereum (ETH)</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span>◆</span>
+                <span>Binance Coin (BNB)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t border-[hsl(var(--flash-border))] mt-8 pt-8 text-center">
+          <p className="text-muted-foreground text-sm">
+            © 2022 FlashUSDT. All rights reserved.
+          </p>
+          <p className="text-xs text-muted-foreground mt-2">
+            Professional Flash USDT generation service with 24/7 support
+          </p>
         </div>
       </div>
-      <div>
-        <h2 className="mb-4 text-sm font-semibold text-foreground">Listed payment methods</h2>
-        <p className="text-sm leading-6 text-muted-foreground">USDT · TRC20 · BEP20 · ERC20 · BTC · ETH · BNB · SOL</p>
-        <p className="mt-3 text-xs leading-5 text-muted-foreground">Addresses shown in the interface are unverified; this site does not process payments.</p>
-      </div>
-    </div>
-    <div className="border-t border-border">
-      <div className="container mx-auto flex flex-col gap-2 px-4 py-5 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-        <p>© 2022 Crypto Flasher. All rights reserved.</p>
-        <p>Simulation only · No real cryptocurrency is created or transferred.</p>
-      </div>
-    </div>
-  </footer>
-);
+    </footer>
+  );
+};
 
 export default FlashFooter;

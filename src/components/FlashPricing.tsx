@@ -1,88 +1,232 @@
-import { useState } from "react";
-import { ArrowRight, Check } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Check } from "lucide-react";
+import { useState } from "react";
 import FlashPaymentDialog from "./FlashPaymentDialog";
 
-type Plan = {
-  name: string;
-  price: number;
-  flashAmount: number;
-  badge?: string;
-};
-
-const plans: Plan[] = [
-  { name: "Lite", price: 50, flashAmount: 2500 },
-  { name: "Base", price: 100, flashAmount: 5000 },
-  { name: "Standard", price: 500, flashAmount: 25000 },
-  { name: "Pro", price: 1000, flashAmount: 50000, badge: "Popular" },
-  { name: "Gold", price: 1500, flashAmount: 100000, badge: "Most Popular" },
-  { name: "Premium", price: 5000, flashAmount: 500000, badge: "Best Value" },
-  { name: "Crown", price: 10000, flashAmount: 1000000 },
-];
-
-const formatUnits = (amount: number) => new Intl.NumberFormat("en-US").format(amount);
-
 const FlashPricing = () => {
-  const [selectedPlan, setSelectedPlan] = useState<Plan | null>(null);
+  const [selectedPlan, setSelectedPlan] = useState<any>(null);
   const [isPaymentDialogOpen, setIsPaymentDialogOpen] = useState(false);
 
-  const showPlanDetails = (plan: Plan) => {
+  const plans = [
+    {
+      name: "Lite",
+      price: 50,
+      flashAmount: "2,500 FlashUSDT",
+      description: "It's perfect for a starter.",
+      popular: false,
+      badge: null as string | null,
+      tier: "default" as "default" | "green",
+      features: [
+        "2,500$ Flash USDT,BTC,SOL,BNB,ETH",
+        "Tokens life - 180 days",
+        "Tradable",
+        "Transferable!",
+        "TRC20,ERC20,BNB",
+        "ALL WALLETS",
+        "ALL EXCHANGES"
+      ]
+    },
+    {
+      name: "Base",
+      price: 100,
+      flashAmount: "5,000 FlashUSDT",
+      description: "It's perfect for a starter.",
+      popular: false,
+      badge: null,
+      tier: "default" as const,
+      features: [
+        "5,000$ Flash USDT,BTC,SOL,BNB,ETH",
+        "Tokens life - 180 days",
+        "Tradable",
+        "Transferable!",
+        "TRC20,ERC20,BNB",
+        "ALL WALLETS",
+        "ALL EXCHANGES"
+      ]
+    },
+    {
+      name: "Standard",
+      price: 500,
+      flashAmount: "25,000 FlashUSDT",
+      description: "Great value for money.",
+      popular: false,
+      badge: null,
+      tier: "default" as const,
+      features: [
+        "25,000$ Flash USDT,BTC,SOL,BNB,ETH",
+        "Tokens life - 180 days",
+        "Tradable",
+        "Transferable!",
+        "TRC20,ERC20,BNB",
+        "ALL WALLETS",
+        "ALL EXCHANGES"
+      ]
+    },
+    {
+      name: "Pro",
+      price: 1000,
+      flashAmount: "50,000 FlashUSDT",
+      description: "Ideal for advanced buyers.",
+      popular: true,
+      badge: null,
+      tier: "default" as const,
+      features: [
+        "50,000$ Flash USDT",
+        "BTC,SOL,BNB,ETH",
+        "Tokens life - 180 days",
+        "Tradable",
+        "TRC20,ERC20,BNB",
+        "100% Safe",
+        "Transferable!",
+        "DEPOSIT ALL WALLETS",
+        "DEPOSIT ALL EXCHANGES"
+      ]
+    },
+    {
+      name: "Gold",
+      price: 1500,
+      flashAmount: "100,000 FlashUSDT",
+      description: "Ultimate professional package.",
+      popular: true,
+      badge: "Most Popular",
+      tier: "green" as const,
+      features: [
+        "100,000$ Flash USDT",
+        "BTC,SOL,BNB,TON",
+        "Tokens life - 180 days",
+        "Tradable",
+        "TRC20,ERC20,BNB",
+        "100% Safe",
+        "Transferable!",
+        "DEPOSIT ALL WALLETS",
+        "DEPOSIT ALL EXCHANGES"
+      ]
+    },
+    {
+      name: "Premium",
+      price: 5000,
+      flashAmount: "500,000 FlashUSDT",
+      description: "Premium professional package.",
+      popular: false,
+      badge: "Best Value",
+      tier: "green" as const,
+      features: [
+        "500,000$ Flash USDT",
+        "BTC,SOL,BNB,TON",
+        "Tokens life - 180 days",
+        "Tradable",
+        "TRC20,ERC20,BNB",
+        "100% Safe",
+        "Transferable!",
+        "DEPOSIT ALL WALLETS",
+        "DEPOSIT ALL EXCHANGES"
+      ]
+    },
+    {
+      name: "Crown",
+      price: 10000,
+      flashAmount: "1,000,000 FlashUSDT",
+      description: "Elite ultimate package.",
+      popular: true,
+      badge: null,
+      tier: "green" as const,
+      features: [
+        "1,000,000$ Flash USDT",
+        "BTC,SOL,BNB,TON,ETH",
+        "Tokens life - 180 days",
+        "Tradable",
+        "TRC20,ERC20,BNB",
+        "100% Safe",
+        "Transferable!",
+        "DEPOSIT ALL WALLETS",
+        "DEPOSIT ALL EXCHANGES"
+      ]
+    }
+  ];
+
+  const handleBuyClick = (plan: any) => {
     setSelectedPlan(plan);
     setIsPaymentDialogOpen(true);
   };
 
   return (
-    <section id="pricing" className="scroll-mt-20 border-b border-border/70 py-20 md:py-24">
+    <section id="pricing" className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="mb-10 flex flex-col justify-between gap-5 md:mb-14 md:flex-row md:items-end">
-          <div className="max-w-2xl">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.12em] text-primary">Simulation tiers</p>
-            <h2 className="text-3xl font-semibold leading-tight text-foreground md:text-5xl">Illustrative plan details.</h2>
-            <p className="mt-4 max-w-xl text-base leading-7 text-muted-foreground">
-              Prices and quantities below are displayed for a visual simulation only. They do not buy or deliver real cryptocurrency.
-            </p>
-          </div>
-          <p className="max-w-sm border-l-2 border-primary/50 pl-4 text-sm leading-6 text-muted-foreground">
-            No genuine assets, wallet credits, or blockchain transfers are created by this site.
+        <div className="text-center mb-16">
+          <h2 className="text-sm text-muted-foreground mb-4">Prices</h2>
+          <h3 className="text-4xl md:text-5xl font-bold text-foreground mb-8">
+            Pricing Plans
+          </h3>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            We offer adaptable pricing solutions for customers of all sizes.
           </p>
         </div>
 
-        <div className="grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {plans.map((plan) => (
-            <Card key={plan.name} className="flex h-full flex-col border-primary/20 bg-card/80 transition-colors hover:border-primary/50">
-              <CardHeader className="relative min-h-36 border-b border-border/70 pb-5 text-left">
-                {plan.badge && (
-                  <Badge className="mb-3 w-fit border border-primary/30 bg-primary/10 text-primary hover:bg-primary/10">
-                    {plan.badge}
-                  </Badge>
-                )}
-                <CardTitle className="text-lg font-semibold text-foreground">{plan.name}</CardTitle>
-                <div className="mt-3 flex flex-wrap items-baseline gap-x-2 gap-y-1">
-                  <span className="text-3xl font-semibold text-primary">${formatUnits(plan.price)}</span>
-                  <span className="text-sm text-muted-foreground">/ {formatUnits(plan.flashAmount)} simulated units</span>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 auto-rows-fr">
+          {plans.map((plan, index) => {
+            const isGreen = plan.tier === "green";
+            return (
+            <Card 
+              key={index} 
+              className={`relative h-full flex flex-col ${
+                isGreen
+                  ? 'bg-card/50 border border-emerald-500/40 shadow-[0_0_10px_rgba(34,197,94,0.25)]'
+                  : 'bg-card/50 border border-[hsl(var(--flash-primary))]/30 shadow-[0_0_10px_hsl(var(--flash-primary)/0.2)]'
+              } hover:brightness-110 transition-all duration-300`}
+            >
+              {plan.badge ? (
+                <Badge className="absolute -top-2 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-black">
+                  {plan.badge}
+                </Badge>
+              ) : plan.popular && (
+                <Badge className="absolute -top-2 left-1/2 transform -translate-x-1/2 bg-[hsl(var(--flash-primary))] text-[hsl(var(--flash-primary-foreground))]">
+                  Popular
+                </Badge>
+              )}
+              
+              <CardHeader className="text-center pb-4">
+                <CardTitle className="text-lg font-semibold capitalize">
+                  {plan.name} Plan
+                </CardTitle>
+                <p className="text-sm text-muted-foreground">
+                  {plan.description}
+                </p>
+                <div className="pt-4">
+                  <span className={`text-4xl font-bold ${isGreen ? 'text-emerald-500' : 'text-[hsl(var(--flash-primary))]'}`}>
+                    ${plan.price}
+                  </span>
+                  <span className="text-muted-foreground text-sm ml-1">
+                    / {plan.flashAmount}
+                  </span>
                 </div>
               </CardHeader>
-              <CardContent className="flex flex-1 flex-col justify-between gap-6 pt-5">
-                <ul className="space-y-3 text-sm text-muted-foreground">
-                  {[
-                    "Simulation interface only",
-                    "Not a real or transferable token",
-                    "No wallet balance or on-chain activity",
-                  ].map((feature) => (
-                    <li key={feature} className="flex items-start gap-2.5">
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 stroke-[2.5] text-primary" aria-hidden="true" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Button variant="flash-outline" className="w-full justify-between" onClick={() => showPlanDetails(plan)}>
-                  View details <ArrowRight aria-hidden="true" />
+
+              <CardContent className="space-y-6 flex flex-col flex-1">
+                <Button 
+                  variant={isGreen ? "flash-green" : "flash-glow"}
+                  className="w-full"
+                  onClick={() => handleBuyClick(plan)}
+                >
+                  Buy
                 </Button>
+
+                <div>
+                  <p className="text-sm font-medium mb-3">What's included:</p>
+                  <ul className="space-y-2">
+                    {plan.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-start gap-2 text-sm">
+                        <Check className={`w-5 h-5 mt-0.5 flex-shrink-0 ${isGreen ? 'text-emerald-500 stroke-[3]' : 'text-[hsl(var(--flash-primary))]'}`} />
+                        <span className="text-muted-foreground">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </CardContent>
             </Card>
-          ))}
+            );
+          })}
         </div>
       </div>
 

@@ -1,21 +1,46 @@
-import { MessageCircle, Send } from "lucide-react";
+import { X } from "lucide-react";
+import { useState } from "react";
 
-const TopBanner = () => (
-  <div className="border-b border-primary/20 bg-primary/5 px-4 py-2.5">
-    <div className="container mx-auto flex flex-col items-center justify-between gap-2 text-xs sm:flex-row">
-      <p className="text-center font-medium text-foreground sm:text-left">
-        Test-only simulation. No genuine tokens or blockchain transfers are created.
-      </p>
-      <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1 text-muted-foreground">
-        <a className="inline-flex items-center gap-1.5 transition-colors hover:text-primary" href="https://t.me/cryptoflasha" target="_blank" rel="noopener noreferrer">
-          <Send className="h-3.5 w-3.5" aria-hidden="true" /> @cryptoflasha
-        </a>
-        <a className="inline-flex items-center gap-1.5 transition-colors hover:text-primary" href="https://wa.me/17873715591" target="_blank" rel="noopener noreferrer">
-          <MessageCircle className="h-3.5 w-3.5" aria-hidden="true" /> +17873715591
-        </a>
+const TopBanner = () => {
+  const [isVisible, setIsVisible] = useState(true);
+
+  if (!isVisible) return null;
+
+  return (
+    <div className="bg-[hsl(var(--flash-primary))] text-[hsl(var(--flash-primary-foreground))] py-2 px-4 relative">
+      <div className="container mx-auto flex items-center justify-center text-sm font-medium">
+        <div className="flex items-center gap-4">
+          <span className="flex items-center gap-2">
+            ✨ New: Our Flash USDT now have the original HASH
+          </span>
+          <div className="flex items-center gap-3 text-xs">
+            <a 
+              href="https://wa.me/17873715591" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:opacity-80 transition-opacity"
+            >
+              📱 WhatsApp
+            </a>
+            <a 
+              href="https://t.me/cryptoflasha" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:opacity-80 transition-opacity"
+            >
+              💬 Telegram
+            </a>
+          </div>
+        </div>
+        <button
+          onClick={() => setIsVisible(false)}
+          className="absolute right-4 hover:opacity-70 transition-opacity"
+        >
+          <X className="w-4 h-4" />
+        </button>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default TopBanner;

@@ -52,8 +52,6 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				success: 'hsl(var(--success))',
-				'accent-glow': 'hsl(var(--accent-glow))',
 				crypto: {
 					primary: 'hsl(var(--crypto-primary))',
 					glow: 'hsl(var(--crypto-glow))',

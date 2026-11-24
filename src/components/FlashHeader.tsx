@@ -20,27 +20,21 @@ const FlashHeader = () => {
           <div className="w-8 h-8 bg-[hsl(var(--flash-primary))] rounded-full flex items-center justify-center animate-pulse-glow">
             <span className="text-[hsl(var(--flash-primary-foreground))] font-bold text-sm">F</span>
           </div>
-          <span className="text-xl font-bold text-foreground">FlashUSDT</span>
+          <span className="text-xl font-bold text-foreground">Crypto Flasher</span>
         </div>
         
         <nav className="hidden md:flex items-center space-x-6">
           <button 
-            onClick={() => handleScrollToSection('why-us')}
-            className="text-muted-foreground hover:text-[hsl(var(--flash-primary))] transition-colors"
-          >
-            Why Us
-          </button>
-          <button 
-            onClick={() => handleScrollToSection('reviews')}
-            className="text-muted-foreground hover:text-[hsl(var(--flash-primary))] transition-colors"
-          >
-            Reviews
-          </button>
-          <button 
-            onClick={() => handleScrollToSection('pricing')}
+            onClick={() => handleScrollToSection('prices')}
             className="text-muted-foreground hover:text-[hsl(var(--flash-primary))] transition-colors"
           >
             Prices
+          </button>
+          <button 
+            onClick={() => handleScrollToSection('networks')}
+            className="text-muted-foreground hover:text-[hsl(var(--flash-primary))] transition-colors"
+          >
+            Networks
           </button>
           <button 
             onClick={() => handleScrollToSection('faq')}
@@ -74,22 +68,16 @@ const FlashHeader = () => {
         <div className="md:hidden border-t border-[hsl(var(--flash-border))] bg-background/95 backdrop-blur-sm">
           <div className="container mx-auto px-4 py-4 space-y-2">
             <button 
-              onClick={() => handleScrollToSection('why-us')}
-              className="block w-full text-left py-2 text-muted-foreground hover:text-[hsl(var(--flash-primary))]"
-            >
-              Why Us
-            </button>
-            <button 
-              onClick={() => handleScrollToSection('reviews')}
-              className="block w-full text-left py-2 text-muted-foreground hover:text-[hsl(var(--flash-primary))]"
-            >
-              Reviews
-            </button>
-            <button 
-              onClick={() => handleScrollToSection('pricing')}
+              onClick={() => handleScrollToSection('prices')}
               className="block w-full text-left py-2 text-muted-foreground hover:text-[hsl(var(--flash-primary))]"
             >
               Prices
+            </button>
+            <button 
+              onClick={() => handleScrollToSection('networks')}
+              className="block w-full text-left py-2 text-muted-foreground hover:text-[hsl(var(--flash-primary))]"
+            >
+              Networks
             </button>
             <button 
               onClick={() => handleScrollToSection('faq')}

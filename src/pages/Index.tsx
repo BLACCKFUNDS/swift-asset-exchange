@@ -1,31 +1,20 @@
-import TopBanner from "@/components/TopBanner";
 import FlashHeader from "@/components/FlashHeader";
 import FlashHero from "@/components/FlashHero";
-import WhyUs from "@/components/WhyUs";
-import FlashStats from "@/components/FlashStats";
-import FlashReviews from "@/components/FlashReviews";
-import FlashPricing from "@/components/FlashPricing";
-import FlashDemoCard from "@/components/FlashDemoCard";
+import LivePrices from "@/components/LivePrices";
+import Networks from "@/components/Networks";
 import FlashFAQ from "@/components/FlashFAQ";
 import FlashFooter from "@/components/FlashFooter";
 
-const Index = () => {
-  return (
-    <div className="min-h-screen">
-      <TopBanner />
-      <FlashHeader />
-      <main>
-        <FlashHero />
-        <WhyUs />
-        <FlashStats />
-        <FlashReviews />
-        <FlashPricing />
-        <FlashDemoCard />
-        <FlashFAQ />
-      </main>
-      <FlashFooter />
-    </div>
-  );
-};
-
+const Index = () => (
+  <div className="min-h-screen">
+    <FlashHeader />
+    <main>
+      <FlashHero />
+      <LivePrices />
+      <Networks />
+      <FlashFAQ />
+    </main>
+    <FlashFooter />
+  </div>
+);
 export default Index;

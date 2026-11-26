@@ -16,7 +16,7 @@ const VideoProofsDialog = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline" className="gap-2">
+        <Button variant="outline" size="lg" className="gap-2 rounded-xl font-bold border-2 border-[hsl(var(--flash-primary))] text-[hsl(var(--flash-primary))] shadow-[0_0_16px_hsl(var(--flash-primary)/0.55)] hover:shadow-[0_0_24px_hsl(var(--flash-primary)/0.75)] transition-all">
           <Play className="w-4 h-4" />
           Video Proofs
         </Button>

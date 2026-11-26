@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import WalletProofsDialog from "./WalletProofsDialog";
 import VideoProofsDialog from "./VideoProofsDialog";
 import HeroOrb from "./HeroOrb";
 import { MessageCircle, Play } from "lucide-react";
@@ -52,7 +53,10 @@ const FlashHero = () => {
             </Button>
             
             <div className="pt-4">
-              <VideoProofsDialog />
+              <div className="flex flex-wrap justify-center gap-4">
+                <VideoProofsDialog />
+                <WalletProofsDialog />
+              </div>
             </div>
           </div>
         </div>

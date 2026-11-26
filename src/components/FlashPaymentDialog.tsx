@@ -147,7 +147,7 @@ const FlashPaymentDialog = ({ isOpen, onOpenChange, selectedPlan }: FlashPayment
             <h3 className="text-lg font-semibold mb-4">Select Payment Method</h3>
             <div className="grid md:grid-cols-2 gap-4">
               {paymentMethods.map((method, index) => (
-                <Card key={index} className="border-[hsl(var(--flash-border))] hover:border-[hsl(var(--flash-primary))]/50 transition-colors">
+                <Card key={index} className="border-yellow-400/70 hover:border-yellow-400 transition-colors">
                   <CardContent className="p-4">
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-2">

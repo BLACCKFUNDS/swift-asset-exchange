@@ -33,7 +33,7 @@ const FlashHero = () => {
               variant="flash-glow" 
               size="xl" 
               onClick={handleScrollToPricing}
-              className="animate-pulse-glow rounded-xl"
+              className="animate-pulse-glow rounded-xl font-extrabold border-2 border-[hsl(var(--flash-primary))] shadow-[0_0_18px_hsl(var(--flash-primary)/0.5)]"
             >
               Get Flash
             </Button>

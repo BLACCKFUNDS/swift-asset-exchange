@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import VideoProofsDialog from "./VideoProofsDialog";
 import HeroOrb from "./HeroOrb";
 import { MessageCircle, Play } from "lucide-react";
 
@@ -51,14 +52,7 @@ const FlashHero = () => {
             </Button>
             
             <div className="pt-4">
-              <Button 
-                variant="outline" 
-                className="gap-2"
-                onClick={() => window.open('/video-proof.mp4', '_blank')}
-              >
-                <Play className="w-4 h-4" />
-                Video Proofs
-              </Button>
+              <VideoProofsDialog />
             </div>
           </div>
         </div>

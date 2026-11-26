@@ -20,7 +20,7 @@ interface FlashPaymentDialogProps {
 const FlashPaymentDialog = ({ isOpen, onOpenChange, selectedPlan }: FlashPaymentDialogProps) => {
   const [userWallet, setUserWallet] = useState("");
   const [flashType, setFlashType] = useState("");
-  const [paymentReceipt, setPaymentReceipt] = useState<File | null>(null);
+  const [paymentReceipt, setPaymentReceipt] = useState<File[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
@@ -86,14 +86,15 @@ const FlashPaymentDialog = ({ isOpen, onOpenChange, selectedPlan }: FlashPayment
   };
 
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      setPaymentReceipt(file);
+    const files = Array.from(event.target.files ?? []);
+    if (files.length) {
+      setPaymentReceipt((prev) => [...prev, ...files]);
     }
+    event.target.value = "";
   };
 
   const handleSubmitOrder = async () => {
-    if (!userWallet || !flashType || !paymentReceipt) {
+    if (!userWallet || !flashType || paymentReceipt.length === 0) {
       toast({
         title: "Missing Information",
         description: "Please fill in all required fields",
@@ -118,7 +119,7 @@ const FlashPaymentDialog = ({ isOpen, onOpenChange, selectedPlan }: FlashPayment
     // Reset form
     setUserWallet("");
     setFlashType("");
-    setPaymentReceipt(null);
+    setPaymentReceipt([]);
   };
 
   const handleContactSupport = () => {
@@ -216,19 +217,19 @@ const FlashPaymentDialog = ({ isOpen, onOpenChange, selectedPlan }: FlashPayment
                   id="receipt"
                   type="file"
                   accept="image/*,.pdf"
+                  multiple
                   onChange={handleFileUpload}
                   className="cursor-pointer"
                 />
-                {paymentReceipt && (
-                  <div className="flex items-center gap-2 mt-2 p-2 bg-green-500/10 border border-green-500/20 rounded">
+                {paymentReceipt.map((f, i) => (
+                  <div key={i} className="flex items-center gap-2 mt-2 p-2 bg-green-500/10 border border-green-500/20 rounded">
                     <Upload className="w-4 h-4 text-green-500" />
-                    <span className="text-sm text-green-500">
-                      ✓ {paymentReceipt.name}
-                    </span>
+                    <span className="text-sm text-green-500 flex-1 truncate">✓ {f.name}</span>
+                    <button type="button" aria-label="Remove file" className="text-xs text-muted-foreground hover:text-foreground" onClick={() => setPaymentReceipt((prev) => prev.filter((_, j) => j !== i))}>✕</button>
                   </div>
-                )}
+                ))}
                 <p className="text-xs text-muted-foreground mt-1">
-                  Upload screenshot of your payment transaction
+                  You can upload several screenshots or files of your payment
                 </p>
               </div>
             </div>
@@ -251,7 +252,7 @@ const FlashPaymentDialog = ({ isOpen, onOpenChange, selectedPlan }: FlashPayment
             <Button
               variant="flash-glow"
               onClick={handleSubmitOrder}
-              disabled={isSubmitting || !userWallet || !flashType || !paymentReceipt}
+              disabled={isSubmitting || !userWallet || !flashType || paymentReceipt.length === 0}
               className="flex-1"
             >
               {isSubmitting ? "Submitting..." : "Submit Order"}
